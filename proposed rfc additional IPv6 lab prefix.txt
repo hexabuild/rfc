@@ -1,0 +1,230 @@
+Network Working Group                                          E. Horley
+Request for Comments: XXXX                                     HexaBuild
+Category: Informational                                       T. Coffeen
+                                                               HexaBuild
+                                                                 S. Hogg
+                                                               HexaBuild
+                                                             N. Buraglio
+                                                             <company>
+                                                                K. Myers
+                                                           IP ArchiTechs
+                                                             C. Cummings
+                                                             <company>
+                                                                R. White
+                                                             <company>
+                                                            <Month> 2021
+
+
+    Expanding the IPv6 Address Prefix Reserved for Documentation
+
+Status of this Memo
+
+   This memo provides information for the Internet community.  It does
+   not specify an Internet standard of any kind.  Distribution of this
+   memo is unlimited.
+
+Copyright Notice
+
+   Copyright (C) The Internet Society (2021).
+
+Abstract
+
+   To reduce the likelihood of conflict and confusion when relating
+   documented examples to deployed systems, an IPv6 unicast address
+   prefix is reserved for use in examples in RFCs, books, documentation,
+   and the like.  This document adds an additional prefix to the
+   existing prefix reserved in [RFC3849]
+   (https://tools.ietf.org/html/rfc3849) of 2001:db8::/32. The document
+   describes the use of the IPv6 address prefix 3ffe::/16
+   (formerly 6bone) as a reserved prefix for use in documentation.
+
+1.  Introduction
+
+   The address architecture for IPv6 [1] does not specifically allocate
+   an IPv6 address prefix for use for documentation purposes.
+   The current IPv6 documentation prefix of 2001:db8::/32 is not 
+   large enough for many design, lab, and documentation requirements. An
+   additional, larger allocation would help address this need. 
+
+
+
+
+Horley, et al.               Informational                      [Page 1]
+
+RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
+
+2.  Expanded Documentation IPv6 Address Prefix
+
+   The documentation prefix described in this memo can also be used to
+   generate multicast addresses for documentation, using the Unicast
+   prefix-based proposal [2].  Representing other kinds of multicast
+   addresses in documentation is outside the scope of this memo.
+
+   The additional prefix allocated for documentation purposes is
+   3ffe::/16.
+
+3.  Operational Implications
+
+   This assignment implies that IPv6 network operators should add this
+   address prefix to the list of non-routeable IPv6 address space, and
+   if packet filters are deployed, then this address prefix should be
+   added to packet filters.
+
+   Because this address prefix has previously been used for the 6bone,
+   and subsequently the 6bone was shutdown, this address prefix is
+   already listed in many non-routeable tables, filters and lists. It 
+   was also depreferred in RFC6724
+   (https://tools.ietf.org/html/rfc6724) which limits its usability.
+   In addition, the address prefix was returned to IANA and is
+   available to be marked for documentation purposes.
+
+   This is not a local-use address prefix, and the filters may be used
+   in both local and public contexts.
+
+4.  IANA Considerations
+
+   IANA is to record the allocation of the IPv6 global unicast address
+   prefix  3ffe::/16 as a documentation-only prefix  in the IPv6
+   address registry.  No end party is to be assigned this address.
+
+
+
+
+
+
+
+Horley, et al.               Informational                      [Page 2]
+
+RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
+
+
+5.  Security Considerations
+
+   IPv6 addressing documents do not have any direct impact on Internet
+   infrastructure security.
+
+6.  Acknowledgements
+
+   The authors acknowledge the work of Geoff Huston, assisted by
+   Anne Lord, and Philip Smith, in authoring the previous proposal for
+   the IPv6 documentation prefix.
+
+7.  References
+
+7.1.  Normative References
+
+   [1]  Hinden, R. and S. Deering, "Internet Protocol Version 6 (IPv6)
+        Addressing Architecture", RFC 3513, April 2003.
+
+7.2.  Informative References
+
+   [2]  Haberman, B. and D. Thaler, "Unicast-Prefix-based IPv6 Multicast
+        Addresses", RFC 3306, August 2002.
+
+Authors' Addresses
+
+   Ed Horley
+   HexaBuild
+
+   EMail: ed@hexabuild.io
+
+
+   Tom Coffeen
+   HexaBuild
+
+   EMail: tom@hexabuild.io
+
+
+   Scott Hogg
+   HexaBuild
+
+   EMail: scott@hexabuild.io
+
+
+   Nick Buraglio
+   <company>
+
+   EMail: <email>>
+
+   
+   Kevin Myers
+   IP ArchiTechs
+
+   EMail: kevin.myers@iparchitechs.com
+
+
+   Chris Cummings
+   <company>
+
+   EMail: <email>
+
+
+   Russ White
+   <company>
+
+   EMail: russ@riw.us
+
+
+
+
+
+
+
+
+Horley, et al.               Informational                      [Page 3]
+
+RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
+
+
+Full Copyright Statement
+
+   Copyright (C) The Internet Society (2021).  This document is subject
+   to the rights, licenses and restrictions contained in BCP 78, and
+   except as set forth therein, the authors retain all their rights.
+
+   This document and the information contained herein are provided on an
+   "AS IS" basis and THE CONTRIBUTOR, THE ORGANIZATION HE/SHE REPRESENTS
+   OR IS SPONSORED BY (IF ANY), THE INTERNET SOCIETY AND THE INTERNET
+   ENGINEERING TASK FORCE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED,
+   INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE
+   INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
+   WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+
+Intellectual Property
+
+   The IETF takes no position regarding the validity or scope of any
+   Intellectual Property Rights or other rights that might be claimed to
+   pertain to the implementation or use of the technology described in
+   this document or the extent to which any license under such rights
+   might or might not be available; nor does it represent that it has
+   made any independent effort to identify any such rights.  Information
+   on the procedures with respect to rights in RFC documents can be
+   found in BCP 78 and BCP 79.
+
+   Copies of IPR disclosures made to the IETF Secretariat and any
+   assurances of licenses to be made available, or the result of an
+   attempt made to obtain a general license or permission for the use of
+   such proprietary rights by implementers or users of this
+   specification can be obtained from the IETF on-line IPR repository at
+   http://www.ietf.org/ipr.
+
+   The IETF invites any interested party to bring to its attention any
+   copyrights, patents or patent applications, or other proprietary
+   rights that may cover technology that may be required to implement
+   this standard.  Please address the information to the IETF at ietf-
+   ipr@ietf.org.
+
+Acknowledgement
+
+   Funding for the RFC Editor function is currently provided by the
+   Internet Society.
+
+
+
+
+
+
+
+
+
+Horley, et al.               Informational                      [Page 4]
