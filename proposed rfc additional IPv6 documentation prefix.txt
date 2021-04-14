@@ -5,11 +5,11 @@ Category: Informational                                       T. Coffeen
                                                                  S. Hogg
                                                                HexaBuild
                                                              N. Buraglio
-                                                             <company>
+                                                             Energy Sciences Network
                                                                 K. Myers
                                                            IP ArchiTechs
                                                              C. Cummings
-                                                             <company>
+                                                             Energy Sciences Network
                                                                 R. White
                                                              <company>
                                                             <Month> 2021
@@ -42,9 +42,9 @@ Abstract
 
    The address architecture for IPv6 [1] does not specifically allocate
    an IPv6 address prefix for use for documentation purposes.
-   The current IPv6 documentation prefix of 2001:db8::/32 is not 
+   The current IPv6 documentation prefix of 2001:db8::/32 is not
    large enough for many design, lab, and documentation requirements. An
-   additional, larger allocation would help address this need. 
+   additional, larger allocation would help address this need.
 
 
 
@@ -66,13 +66,14 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
 3.  Operational Implications
 
    This assignment implies that IPv6 network operators should add this
-   address prefix to the list of non-routeable IPv6 address space, and
-   if packet filters are deployed, then this address prefix should be
-   added to packet filters.
+   address prefix to the list of non-routeable, bogon IPv6 address space, and
+   if packet filters are deployed, this address prefix should be
+   added to packet filters intended to prevent public routing of such address
+   space.
 
    Because this address prefix has previously been used for the 6bone,
    and subsequently the 6bone was shutdown, this address prefix is
-   already listed in many non-routeable tables, filters and lists. It 
+   already listed in many non-routeable tables, filters and lists. It
    was also depreferred in RFC6724
    (https://tools.ietf.org/html/rfc6724) which limits its usability.
    In addition, the address prefix was returned to IANA and is
@@ -84,7 +85,7 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
 4.  IANA Considerations
 
    IANA is to record the allocation of the IPv6 global unicast address
-   prefix  3ffe::/16 as a documentation-only prefix  in the IPv6
+   prefix  3ffe::/16 as a documentation-only prefix in the IPv6
    address registry.  No end party is to be assigned this address.
 
 
@@ -142,11 +143,11 @@ Authors' Addresses
 
 
    Nick Buraglio
-   <company>
+   Energy Sciences Network
 
-   EMail: <email>>
+   EMail: buraglio@es.net
 
-   
+
    Kevin Myers
    IP ArchiTechs
 
@@ -154,9 +155,9 @@ Authors' Addresses
 
 
    Chris Cummings
-   <company>
+   Energy Sciences Network
 
-   EMail: <email>
+   EMail: chriscummings@es.net
 
 
    Russ White

@@ -4,12 +4,12 @@ Category: Informational                                       T. Coffeen
                                                                HexaBuild
                                                                  S. Hogg
                                                                HexaBuild
-                                                             N. Buraglio
-                                                             <company>
-                                                                K. Myers
-                                                           IP ArchiTechs
-                                                             C. Cummings
-                                                             <company>
+                                                               N. Buraglio
+                                                               Energy Sciences Network
+                                                                  K. Myers
+                                                             IP ArchiTechs
+                                                               C. Cummings
+                                                               Energy Sciences Network
                                                                 R. White
                                                              <company>
                                                             <Month> 2021
@@ -73,7 +73,7 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
 
    Because this address prefix has previously been used for the 6bone,
    and subsequently the 6bone was shutdown, this address prefix is
-   already listed in many non-routeable tables, filters and lists. It 
+   already listed in many non-routeable tables, filters and lists. It
    was also depreferred in RFC6724
    (https://tools.ietf.org/html/rfc6724) which limits its usability.
    In addition, the address prefix was returned to IANA and is
@@ -147,7 +147,7 @@ Authors' Addresses
 
    EMail: <email>>
 
-   
+
    Kevin Myers
    IP ArchiTechs
 
