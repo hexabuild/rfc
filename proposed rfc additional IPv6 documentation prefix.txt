@@ -1,15 +1,13 @@
 Network Working Group                                          E. Horley
-Request for Comments: XXXX                                     HexaBuild
-Category: Informational                                       T. Coffeen
-                                                               HexaBuild
-                                                                 S. Hogg
+Request for Comments: XXXX                                    T. Coffeen
+Category: Informational                                          S. Hogg
                                                                HexaBuild
                                                              N. Buraglio
-                                                             Energy Sciences Network
+                                                 Energy Sciences Network
                                                                 K. Myers
                                                            IP ArchiTechs
                                                              C. Cummings
-                                                             Energy Sciences Network
+                                                 Energy Sciences Network
                                                                 R. White
                                                              <company>
                                                             <Month> 2021
