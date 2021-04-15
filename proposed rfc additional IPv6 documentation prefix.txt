@@ -40,9 +40,12 @@ Abstract
 
    The address architecture for IPv6 [1] does not specifically allocate
    an IPv6 address prefix for use for documentation purposes.
-   The current IPv6 documentation prefix of 2001:db8::/32 is not
-   large enough for many design, lab, and documentation requirements. An
-   additional, larger allocation would help address this need.
+   The current IPv6 documentation prefix of 2001:db8::/32 defined in 
+   RFC3849 (https://tools.ietf.org/html/rfc3849) is not large enough for
+   many design, lab, and documentation requirements. An example of this
+   limitation is apparent when doumenting a multi-provder ISP network 
+   address plan. An additional, larger allocation would help address 
+   these needs.
 
 
 
