@@ -3,11 +3,10 @@ Request for Comments: XXXX                                    T. Coffeen
 Category: Informational                                          S. Hogg
                                                                HexaBuild
                                                              N. Buraglio
+                                                             C. Cummings
                                                  Energy Sciences Network
                                                                 K. Myers
                                                            IP ArchiTechs
-                                                             C. Cummings
-                                                 Energy Sciences Network
                                                                 R. White
                                                              <company>
                                                             <Month> 2021
@@ -42,8 +41,8 @@ Abstract
    an IPv6 address prefix for use for documentation purposes.
    The current IPv6 documentation prefix of 2001:db8::/32 defined in
    RFC3849 (https://tools.ietf.org/html/rfc3849) is not large enough for
-   many design, lab, and documentation requirements. An example of this
-   limitation is apparent when doumenting a multi-provder ISP network
+   many design and documentation requirements. An example of this
+   limitation is apparent when documenting a multi-provider ISP network
    address plan. An additional, larger allocation would help address
    these needs.
 
@@ -67,10 +66,10 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
 3.  Operational Implications
 
    This assignment implies that IPv6 network operators should add this
-   address prefix to the list of non-routeable, bogon IPv6 address space, and
-   if packet filters are deployed, this address prefix should be
-   added to packet filters intended to prevent public routing of such address
-   space.
+   address prefix to the list of non-routeable, bogon IPv6 address space,
+   and if packet filters are deployed, this address prefix should be
+   added to packet filters intended to prevent public routing of such
+   address space.
 
    Because this address prefix has previously been used for the 6bone,
    and subsequently the 6bone was shutdown, this address prefix is
@@ -102,8 +101,9 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
 
 5.  Security Considerations
 
-   As this prefix is reserved for documentation purposes, it should be considered
-   bogon space and filtered accordingly, following MANRS and BCP38 guidelines.
+   As this prefix is reserved for documentation purposes, it should be
+   considered bogon space and filtered accordingly, following MANRS,
+   BCP38, and BCP84 guidelines.
     
 
 6.  Acknowledgements
