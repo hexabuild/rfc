@@ -110,8 +110,8 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
 
 5.  Security Considerations
 
-   IPv6 addressing documents do not have any direct impact on Internet
-   infrastructure security.
+   As this prefix is to be considered un-routeable, it should be added 
+   to bogon lists and BCP38 filters.  
 
 6.  Acknowledgements
 
