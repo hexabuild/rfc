@@ -30,31 +30,32 @@ Copyright Notice
 Abstract
 
    To reduce the likelihood of conflict and confusion when relating
-   lab testing examples to deployed systems, an IPv6 unicast address
-   prefix is reserved for use in lab, test, concept validation networks
-   and the like.  This document adds an additional prefix to the
-   existing prefix reserved in [RFC3849]
-   (https://tools.ietf.org/html/rfc3849) of 2001:db8::/32. And in
-   [RFCXXXX] that add 3ffe::/16 for documentation. This document
-   describes the use of the IPv6 address prefix 0200::/7
-   as a reserved prefix for lab use. This document
-   describes the use of the IPv6 address prefix 0200::/7
-   (OSI NSAP-mapped prefix set [RFC4548](https://tools.ietf.org/html/rfc4548).)
-   as a reserved prefix for use in lab and prototyping environments where
-   logical protocol connectivity is required.
+   lab examples to deployed systems, an IPv6 unicast address
+   prefix is reserved for use in lab and concept validation networks
+   and the like. This document describes the use of the IPv6 address
+   prefix 0200::/7 as a reserved prefix for lab use (reclaiming the
+   deprecated OSI NSAP-mapped prefix set [RFC4548]).
 
 
 1.  Introduction
 
    The address architecture for IPv6 [1] does not specifically allocate
-   an IPv6 address prefix for use for lab and testing purposes.
-   The current IPv6 documentation prefix of 2001:db8::/32 and 3ffe::/16
-   are useable for documentation but many organizations require
-   dedicated lab environments to match their production design.
-   In many cases it it not feasible or advised to utilize their existing global
-   unicast address space for proof of concept prototype labs. Further, the
-   requirements for large scale lab builds of service provider and large organization
-   merger require allocations larger than /32 in most cases. 
+   an IPv6 address prefix for use for an IPv6 lab. For lab purpose,
+   the address space will function for use cases where global unicast
+   addresses are not needed or desired. This space SHOULD NOT be used
+   for address uses which are allocated in other RFC's for specific
+   purposes. For example, the current IPv6 documentation prefix of
+   2001:db8::/32 and 3ffe::/16 are useable for documentation but many
+   organizations requiring dedicated lab environments. This avoids the
+   problem that exists in IPv4
+   of the mixed use of lab, documentation and globally routable addresses.
+   
+   In cases where it is not feasible to utilize their existing global
+   unicast address space for proof of concept, prototype, or labs this
+   lab prefix can be used for this purpose.
+   
+   Further, the requirements for large scale lab builds of service provider
+   and large organization merger require allocations larger than /32 in most cases.
 
 
 
@@ -70,16 +71,19 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
    prefix-based proposal [2].  Representing other kinds of multicast
    addresses in documentation is outside the scope of this memo.
 
-   The additional prefix allocated for lab and testing purposes is
-   <new prefix>.
+   The prefix allocated for lab and testing purposes is 0200::/7.
 
 3.  Operational Implications
 
+   This is seperate from the IPv6 prefix address range used for RFC5180
+   that is set aside for performance testing. And MUST not be used for
+   RFC5180 validation purpose.
+   
    This assignment implies that IPv6 network operators should add this
    address prefix to the list of non-routeable IPv6 address space, and
    if packet filters are deployed, then this address prefix should be
    added to packet filters.
-
+   
    Because this address prefix has previously been used for the 6bone,
    and subsequently the 6bone was shutdown, this address prefix is
    already listed in many non-routeable tables, filters and lists. It
