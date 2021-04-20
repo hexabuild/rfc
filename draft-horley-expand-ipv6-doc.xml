@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!-- This template is for creating an Internet Draft using xml2rfc,
+    which is available here: http://xml.resource.org. -->
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY RFC3513 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3513.xml">
+<!ENTITY RFC3306 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3306.xml">
+<!ENTITY RFC3849 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3849.xml">
+<!ENTITY RFC6724 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6724.xml">
+]>
+
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<?rfc strict="yes" ?>
+<?rfc toc="yes"?>
+<?rfc tocdepth="4"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes" ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<rfc category="info" docName="draft-horley-expand-ipv6-doc" ipr="trust200902">
+
+<!-- ***** FRONT MATTER ***** -->
+
+<front>
+
+<title>Expanding the IPv6 Address Prefix Reserved for Documentation</title>
+
+<author initials='E.' surname='Horley' fullname='Ed Horley'>
+<organization>HexaBuild</organization>
+<address>
+<email>ed@hexabuild.io</email>
+</address>
+</author>
+
+<author initials='T.' surname='Coffeen' fullname='Tom Coffeen'>
+<organization>HexaBuild</organization>
+<address>
+<email>tom@hexabuild.io</email>
+</address>
+</author>
+
+<author initials='S.' surname='Hogg' fullname='Scott Hogg'>
+<organization>HexaBuild</organization>
+<address>
+<email>scott@hexabuild.io</email>
+</address>
+</author>
+
+<author initials='N.' surname='Buraglio' fullname='Nick Buraglio'>
+<organization>Energy Sciences Network</organization>
+<address>
+<email>buraglio@es.net</email>
+</address>
+</author>
+
+<author initials='K.' surname='Myers' fullname='Kevin Myers'>
+<organization>IP ArchiTechs</organization>
+<address>
+<email>kevin.myers@iparchitechs.com</email>
+</address>
+</author>
+
+<author initials='C.' surname='Cummings' fullname='Chris Cummings'>
+<organization>Energy Sciences Network</organization>
+<address>
+<email>chriscummings@es.net</email>
+</address>
+</author>
+
+<author initials='R.' surname='White' fullname='Russ White'>
+<organization>Juniper Networks</organization>
+<address>
+<email>russ@riw.us</email>
+</address>
+</author>
+
+<date/>
+
+<abstract>
+<t>To reduce the likelihood of conflict and confusion when relating documented examples to deployed systems, an IPv6 unicast address prefix is reserved for use in examples in RFCs, books, documentation, and the like.  This document adds an additional prefix to the existing reserved IPv6 prefixes, 2001:db8::/32. This document describes the use of the IPv6 address prefix 3ffe::/16 (formerly 6bone) as a reserved prefix for use in documentation.</t>
+</abstract>
+
+</front>
+
+<middle>
+
+<section title="Introduction" toc="default">
+
+<t>The address architecture for IPv6 [1] does not specifically allocate an IPv6 address prefix for use for documentation purposes. The current IPv6 documentation prefix of 2001:db8::/32 defined in <xref target="RFC3849" /> is not large enough for many design, lab, and documentation requirements. An example of this limitation is apparent when doumenting a multi-provder ISP network address plan. An additional, larger allocation would help address these needs.</t>
+
+</section> <!-- end of introduction -->
+
+<section title="Expanded Documentation IPv6 Address Prefix" toc="default">
+
+<t>The documentation prefix described in this memo can also be used to generate multicast addresses for documentation, using the Unicast prefix-based proposal [2]. Representing other kinds of multicast  addresses in documentation is outside the scope of this memo. The additional prefix allocated for documentation purposes is 3ffe::/16.</t>
+
+</section> <!-- end of expanded documentation -->
+
+<section title="Operational Implications" toc="default">
+
+<t>This assignment implies that IPv6 network operators should add this address prefix to the list of non-routeable, bogon IPv6 address space, and if packet filters are deployed, this address prefix should be added to packet filters intended to prevent public routing of such address space.</t>
+
+<t>Because this address prefix has previously been used for the 6bone, and subsequently the 6bone was shutdown, this address prefix is already listed in many non-routeable tables, filters and lists. It was also depreferred in <xref target="RFC6724" /> which limits its usability. In addition, the address prefix was returned to IANA and is available to be marked for documentation purposes.</t>
+
+<t>This is not a local-use address prefix, and the filters may be used in both local and public contexts.</t>
+
+</section> <!-- end of operational implications -->
+
+<section title="IANA Considerations" toc="default">
+
+<t>IANA is to record the allocation of the IPv6 global unicast address prefix  3ffe::/16 as a documentation-only prefix in the IPv6 address registry.  No end party is to be assigned this address.</t>
+
+</section> <!-- end of iana considerations -->
+
+<section title="Security Considerations" toc="default">
+
+<t>IPv6 addressing documents generally do not have any direct impact on Internet infrastructure security.</t>
+
+<t>However, the assignment of a new address space for documentation purposes does mean, as indicated above, that these addresses SHOULD be added to any filters required by individual operators to prevent their use for globally routed destinations.</t>
+
+</section> <!-- end of security considerations -->
+
+<section title="Acknowledgements" toc="default">
+
+<t>The authors acknowledge the work of Geoff Huston, assisted by Anne Lord, and Philip Smith, in authoring the previous proposal for the IPv6 documentation prefix.</t>
+
+</section> <!-- end of acknowledgements -->
+
+</middle>
+
+<back>
+
+<references title="Normative References">
+
+&RFC2119;
+&RFC3513;
+
+</references> <!-- end of normative references -->
+
+<references title="Informative References">
+
+&RFC3306;
+&RFC3849;
+&RFC6724;
+
+</references> <!-- end of informative references -->
+
+</back>
+
+</rfc>
