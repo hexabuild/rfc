@@ -4,14 +4,14 @@ Category: Informational                                       T. Coffeen
                                                                HexaBuild
                                                                  S. Hogg
                                                                HexaBuild
-                                                               N. Buraglio
-                                                               Energy Sciences Network
-                                                                  K. Myers
-                                                             IP ArchiTechs
-                                                               C. Cummings
-                                                               Energy Sciences Network
+                                                             N. Buraglio
+                                                 Energy Sciences Network
+                                                                K. Myers
+                                                           IP ArchiTechs
+                                                             C. Cummings
+                                                 Energy Sciences Network
                                                                 R. White
-                                                             <company>
+                                                        Juniper Networks
                                                             <Month> 2021
 
 
@@ -31,42 +31,43 @@ Abstract
 
    To reduce the likelihood of conflict and confusion when relating
    lab examples to deployed systems, an IPv6 unicast address
-   prefix is reserved for use in lab and concept validation networks
-   and the like. This document describes the use of the IPv6 address
-   prefix 0200::/7 as a reserved prefix for lab use (reclaiming the
-   deprecated OSI NSAP-mapped prefix set [RFC4548]).
+   prefix is reserved for use in lab and proof of concept validation
+   networks and for similar use cases. This document describes the use 
+   of the IPv6 address prefix 0200::/7 as a reserved prefix for this
+   purpose (repurposing the deprecated OSI NSAP-mapped prefix [RFC4548]).
 
 
 1.  Introduction
 
    The address architecture for IPv6 [1] does not specifically allocate
-   an IPv6 address prefix for use for an IPv6 lab. For lab purpose,
-   the address space will function for use cases where global unicast
+   an IPv6 address prefix for an IPv6 lab. For this lab purpose,
+   the address space will function in a use cases where global unicast
    addresses are not needed or desired. This space SHOULD NOT be used
-   for address uses which are allocated in other RFC's for specific
+   for addresses which are allocated in other RFC's for specific
    purposes. For example, the current IPv6 documentation prefix of
-   2001:db8::/32 and 3ffe::/16 are useable for documentation but many
-   organizations requiring dedicated lab environments. This avoids the
-   problem that exists in IPv4
-   of the mixed use of lab, documentation and globally routable addresses.
+   2001:db8::/32 and 3ffe::/16 are useable for documentation but
+   organizations should avoid those prefixes for a lab environment. 
+   Designing labs utilizing ULA fc00::/7 (RFC4193) is problematic
+   due to the random global ID requirement preventing hierarchical 
+   network prefix design possibilities.
+   The use of an IPv6 lab prefix avoids the problem that exists in 
+   IPv4 networks of having the mixed use of lab, documentation, private, 
+   and globally routable addresses.
    
    In cases where it is not feasible to utilize their existing global
    unicast address space for proof of concept, prototype, or labs this
-   lab prefix can be used for this purpose.
-   
-   Further, the requirements for large scale lab builds of service provider
-   and large organization merger require allocations larger than /32 in most cases.
+   lab prefix can be used for this purpose. 
 
 
 
 
 Horley, et al.               Informational                      [Page 1]
 
-RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
+RFC XXXY         IPv6 Address Prefix Reserved for Lab       <Month> 2021
 
 2.  New Lab IPv6 Address Prefix
 
-   The documentation prefix described in this memo can also be used to
+   The lab prefix described in this memo can also be used to
    generate multicast addresses for lab, using the Unicast
    prefix-based proposal [2].  Representing other kinds of multicast
    addresses in documentation is outside the scope of this memo.
@@ -75,8 +76,8 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
 
 3.  Operational Implications
 
-   This is seperate from the IPv6 prefix address range used for RFC5180
-   that is set aside for performance testing. And MUST not be used for
+   This lab prefix is seperate from the prefix used for RFC5180
+   that is set aside for performance testing, and MUST not be used for
    RFC5180 validation purpose.
    
    This assignment implies that IPv6 network operators should add this
@@ -84,13 +85,11 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
    if packet filters are deployed, then this address prefix should be
    added to packet filters.
    
-   Because this address prefix has previously been used for the 6bone,
-   and subsequently the 6bone was shutdown, this address prefix is
-   already listed in many non-routeable tables, filters and lists. It
-   was also depreferred in RFC6724
-   (https://tools.ietf.org/html/rfc6724) which limits its usability.
+   Because this address prefix has previously been used for the OSI
+   NSAP-mapped prefix set in RFC4048 and RFC4548, and deprecated, 
+   this address prefix is already limited in its usability.
    In addition, the address prefix was returned to IANA and is
-   available to be marked for documentation purposes.
+   available to be marked for lab or other purposes.
 
    This is not a local-use address prefix, and the filters may be used
    in both local and public contexts.
@@ -98,8 +97,8 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
 4.  IANA Considerations
 
    IANA is to record the allocation of the IPv6 global unicast address
-   prefix  3ffe::/16 as a documentation-only prefix  in the IPv6
-   address registry.  No end party is to be assigned this address.
+   prefix  0200::/7 as a lab-only prefix in the IPv6 ddress registry. 
+   No end party is to be assigned this address.
 
 
 
@@ -109,19 +108,24 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
 
 Horley, et al.               Informational                      [Page 2]
 
-RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
+RFC XXXY         IPv6 Address Prefix Reserved for Lab       <Month> 2021
 
 
 5.  Security Considerations
+ 
+   IPv6 addressing labs generally do not have any direct impact on
+   Internet infrastructure security.
 
-   As this prefix is to be considered un-routeable, it should be added 
-   to bogon lists and BCP38 filters.  
+   However, the assignment of a new address space for lab purposes does
+   mean, as indicated above, that these addresses SHOULD
+   be added to any filters required by individual operators to prevent
+   their use for globally routed destinations.
 
 6.  Acknowledgements
 
-   The authors acknowledge the work of Geoff Huston, assisted by
-   Anne Lord, and Philip Smith, in authoring the previous proposal for
-   the IPv6 documentation prefix.
+   The authors acknowledge the work of Bob Hinden and Stephen Deering, 
+   in authoring the protocol standard and the addressing architecture
+   for IPv6.
 
 7.  References
 
@@ -134,6 +138,13 @@ RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
 
    [2]  Haberman, B. and D. Thaler, "Unicast-Prefix-based IPv6 Multicast
         Addresses", RFC 3306, August 2002.
+
+Do we need to reference these?:
+   RFC5952 - A Recommendation for IPv6 Address Text Representation
+   RFC4548 - Internet Code Point (ICP) Assignments for NSAP Addresses
+   RFC2544 - Benchmarking Methodology for Network Interconnect Devices
+   RFC5180 - IPv6 Benchmarking Methodology for Network Interconnect Devices
+
 
 Authors' Addresses
 
@@ -156,9 +167,9 @@ Authors' Addresses
 
 
    Nick Buraglio
-   <company>
+   Energy Sciences Network
 
-   EMail: <email>>
+   EMail: buraglio@es.net
 
 
    Kevin Myers
@@ -168,77 +179,12 @@ Authors' Addresses
 
 
    Chris Cummings
-   <company>
+   Energy Sciences Network
 
-   EMail: <email>
+   EMail: chriscummings@es.net
 
 
    Russ White
-   <company>
+   Juniper Networks
 
    EMail: russ@riw.us
-
-
-
-
-
-
-
-
-Horley, et al.               Informational                      [Page 3]
-
-RFC XXXX         Additional IPv6 Documentation Address      <Month> 2021
-
-
-Full Copyright Statement
-
-   Copyright (C) The Internet Society (2021).  This document is subject
-   to the rights, licenses and restrictions contained in BCP 78, and
-   except as set forth therein, the authors retain all their rights.
-
-   This document and the information contained herein are provided on an
-   "AS IS" basis and THE CONTRIBUTOR, THE ORGANIZATION HE/SHE REPRESENTS
-   OR IS SPONSORED BY (IF ANY), THE INTERNET SOCIETY AND THE INTERNET
-   ENGINEERING TASK FORCE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED,
-   INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE
-   INFORMATION HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED
-   WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
-
-Intellectual Property
-
-   The IETF takes no position regarding the validity or scope of any
-   Intellectual Property Rights or other rights that might be claimed to
-   pertain to the implementation or use of the technology described in
-   this document or the extent to which any license under such rights
-   might or might not be available; nor does it represent that it has
-   made any independent effort to identify any such rights.  Information
-   on the procedures with respect to rights in RFC documents can be
-   found in BCP 78 and BCP 79.
-
-   Copies of IPR disclosures made to the IETF Secretariat and any
-   assurances of licenses to be made available, or the result of an
-   attempt made to obtain a general license or permission for the use of
-   such proprietary rights by implementers or users of this
-   specification can be obtained from the IETF on-line IPR repository at
-   http://www.ietf.org/ipr.
-
-   The IETF invites any interested party to bring to its attention any
-   copyrights, patents or patent applications, or other proprietary
-   rights that may cover technology that may be required to implement
-   this standard.  Please address the information to the IETF at ietf-
-   ipr@ietf.org.
-
-Acknowledgement
-
-   Funding for the RFC Editor function is currently provided by the
-   Internet Society.
-
-
-
-
-
-
-
-
-
-Horley, et al.               Informational                      [Page 4]
