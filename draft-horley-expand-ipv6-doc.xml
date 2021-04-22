@@ -6,6 +6,7 @@
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
 <!ENTITY RFC3513 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3513.xml">
 <!ENTITY RFC3306 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3306.xml">
+<!ENTITY RFC4291 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4291.xml">
 <!ENTITY RFC6724 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6724.xml">
 <!ENTITY RFC6890 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6890.xml">
 ]>
@@ -87,13 +88,16 @@
 
 <section title="Introduction" toc="default">
 
-<t>The address architecture for IPv6 [1] does not specifically allocate an IPv6 address prefix for use for documentation purposes. The current IPv6 documentation prefix of 2001:db8::/32 defined in <xref target="RFC6890" /> is not large enough for many design, lab, and documentation requirements. An example of this limitation is apparent when doumenting a multi-provder ISP network address plan. An additional, larger allocation would help address these needs.</t>
+<t>The address architecture for IPv6 <xref target="RFC4291" /> does not specifically allocate an IPv6 address prefix for use for documentation purposes. The current IPv6 documentation prefix of 2001:db8::/32 defined in <xref target="RFC6890" /> is not large enough for many design, lab, and documentation requirements. An example of this limitation is apparent when doumenting a multi-provder ISP network address plan. An additional, larger allocation would help address these needs.</t>
 
 </section> <!-- end of introduction -->
 
 <section title="Expanded Documentation IPv6 Address Prefix" toc="default">
 
-<t>The documentation prefix described in this memo can also be used to generate multicast addresses for documentation, using the Unicast prefix-based proposal [2]. Representing other kinds of multicast  addresses in documentation is outside the scope of this memo. The additional prefix allocated for documentation purposes is 3ffe::/16.</t>
+
+    
+    
+    <t>The documentation prefix described in this memo can also be used to generate multicast addresses for documentation, using the Unicast prefix-based proposal <xref target="RFC3306" />. Representing other kinds of multicast  addresses in documentation is outside the scope of this memo. The additional prefix allocated for documentation purposes is 3ffe::/16.</t>
 
 </section> <!-- end of expanded documentation -->
 
@@ -135,6 +139,7 @@
 
 &RFC2119;
 &RFC3513;
+&RFC4291;
 
 </references> <!-- end of normative references -->
 
