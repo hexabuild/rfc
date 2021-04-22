@@ -94,8 +94,7 @@
 
 <section title="Expanded Documentation IPv6 Address Prefix" toc="default">
 
-
-    
+***This section needs to be checked and changed -- Ron says this doesn't work***
     
     <t>The documentation prefix described in this memo can also be used to generate multicast addresses for documentation, using the Unicast prefix-based proposal <xref target="RFC3306" />. Representing other kinds of multicast  addresses in documentation is outside the scope of this memo. The additional prefix allocated for documentation purposes is 3ffe::/16.</t>
 
