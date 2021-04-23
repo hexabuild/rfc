@@ -39,9 +39,7 @@ Because the address architecture for IPv6 [1] does not explicitly define any pre
    Designing labs utilizing ULA fc00::/7 (RFC4193) is problematic
    due to the random global ID requirement preventing hierarchical 
    network prefix design possibilities.
-   The use of an IPv6 lab prefix avoids the problem that exists in 
-   IPv4 networks of having the mixed use of lab, documentation, private, 
-   and globally routable addresses.
+
    
    In cases where it is not feasible to utilize their existing global
    unicast address space for proof of concept, prototype, or labs this
@@ -61,7 +59,7 @@ RFC XXXY         IPv6 Address Prefix Reserved for Lab       <Month> 2021
 3.  Operational Implications
 
    This lab prefix is seperate from the prefix used for RFC5180
-   that is set aside for performance testing, and MUST not be used for
+   that is set aside for performance testing, and SHOULD not be used for
    RFC5180 validation purpose.
    
    This assignment implies that IPv6 network operators should add this
@@ -81,7 +79,7 @@ RFC XXXY         IPv6 Address Prefix Reserved for Lab       <Month> 2021
 4.  IANA Considerations
 
    IANA is to record the allocation of the IPv6 global unicast address
-   prefix  0200::/7 as a lab-only prefix in the IPv6 ddress registry. 
+   prefix  0200::/7 as a lab-only prefix in the IPv6 address registry. 
    No end party is to be assigned this address.
 
 
@@ -119,9 +117,6 @@ RFC XXXY         IPv6 Address Prefix Reserved for Lab       <Month> 2021
         Addressing Architecture", RFC 3513, April 2003.
 
 7.2.  Informative References
-
-   [2]  Haberman, B. and D. Thaler, "Unicast-Prefix-based IPv6 Multicast
-        Addresses", RFC 3306, August 2002.
 
 Do we need to reference these?:
    RFC5952 - A Recommendation for IPv6 Address Text Representation
