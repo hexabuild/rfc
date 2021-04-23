@@ -67,11 +67,6 @@ RFC XXXY         IPv6 Address Prefix Reserved for Lab       <Month> 2021
 
 2.  New Lab IPv6 Address Prefix
 
-   The lab prefix described in this memo can also be used to
-   generate multicast addresses for lab, using the Unicast
-   prefix-based proposal [2].  Representing other kinds of multicast
-   addresses in documentation is outside the scope of this memo.
-
    The prefix allocated for lab and testing purposes is 0200::/7.
 
 3.  Operational Implications
