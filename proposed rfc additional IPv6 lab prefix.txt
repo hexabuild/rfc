@@ -54,7 +54,7 @@ RFC XXXY         IPv6 Address Prefix Reserved for Lab       <Month> 2021
 
 2.  New Lab IPv6 Address Prefix
 
-   The prefix allocated for lab and testing purposes is 0200::/7.
+   The prefix reserved for lab and testing purposes is 0200::/7.
 
 3.  Operational Implications
 
@@ -78,7 +78,7 @@ RFC XXXY         IPv6 Address Prefix Reserved for Lab       <Month> 2021
 
 4.  IANA Considerations
 
-   IANA is to record the allocation of the IPv6 global unicast address
+   IANA is to record the reservation of the IPv6 global unicast address
    prefix  0200::/7 as a lab-only prefix in the IPv6 address registry. 
    No end party is to be assigned this address.
 
