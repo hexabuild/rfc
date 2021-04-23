@@ -29,24 +29,13 @@ Copyright Notice
 
 Abstract
 
-   To reduce the likelihood of conflict and confusion when relating
-   lab examples to deployed systems, an IPv6 unicast address
-   prefix is reserved for use in lab and proof of concept validation
-   networks and for similar use cases. This document describes the use 
-   of the IPv6 address prefix 0200::/7 as a reserved prefix for this
-   purpose (repurposing the deprecated OSI NSAP-mapped prefix [RFC4548]).
-
+   To reduce the likelihood of addressing conflicts and confusion between lab deployments and non-lab (i.e., production) deployments, an IPv6 unicast address prefix is reserved for use in lab, proof-of-concept, and validation networks as well as for for any similar use case. This document describes the use of the IPv6 address prefix 0200::/7 as a prefix reserved for this purpose (repurposing the deprecated OSI NSAP-mapped prefix [RFC4548]).
 
 1.  Introduction
 
-   The address architecture for IPv6 [1] does not specifically allocate
-   an IPv6 address prefix for an IPv6 lab. For this lab purpose,
-   the address space will function in a use cases where global unicast
-   addresses are not needed or desired. This space SHOULD NOT be used
-   for addresses which are allocated in other RFC's for specific
-   purposes. For example, the current IPv6 documentation prefix of
-   2001:db8::/32 and 3ffe::/16 are useable for documentation but
-   organizations should avoid those prefixes for a lab environment. 
+Because the address architecture for IPv6 [1] does not explicitly define any prefixes allocated exclusively for lab use, the IPv6 address prefix 0200::/7 is reserved for this purpose. While lab deployments could potentially use IPv6 address prefixes typically assigned and configured in non-lab networks (e.g., GUA, ULA, unallocated ranges, etc.), the use of such addressing in lab environments may create addressing conflicts and operational confusion. Further, default address selection behavior [RFC6724] by end nodes may result in a depreferencing of such addresses and prevent lab deployments from accurately modeling their desired non-lab equivalents. This space SHOULD NOT be employed for addressing use cases which are already defined in other RFCs. For example, the current IPv6 documentation prefix of 2001:db8::/32 (and the proposed 3ffe::/16 [draft-reference]) are useable for documentation (and conversely, organizations are discouraged from using those prefixes in lab deployments). 
+   
+   
    Designing labs utilizing ULA fc00::/7 (RFC4193) is problematic
    due to the random global ID requirement preventing hierarchical 
    network prefix design possibilities.
