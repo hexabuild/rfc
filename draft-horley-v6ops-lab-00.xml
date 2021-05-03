@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!-- This template is for creating an Internet Draft using xml2rfc,
+    which is available here: http://xml.resource.org. -->
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY RFC3513 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3513.xml">
+<!ENTITY RFC3515 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3515.xml">
+<!ENTITY RFC4048 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4048.xml">
+<!ENTITY RFC4193 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4193.xml">
+<!ENTITY RFC4291 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4291.xml">
+<!ENTITY RFC4548 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4548.xml">
+<!ENTITY RFC5180 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5180.xml">
+<!ENTITY RFC6724 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6724.xml">
+<!ENTITY RFC6890 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6890.xml">
+]>
+
+<?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
+<?rfc strict="yes" ?>
+<?rfc toc="yes"?>
+<?rfc tocdepth="4"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes" ?>
+<?rfc compact="yes" ?>
+<?rfc subcompact="no" ?>
+<rfc category="info" docName="draft-horley-v6ops-lab-00" ipr="trust200902">
+
+<!-- ***** FRONT MATTER ***** -->
+
+<front>
+
+<title>Expanding the IPv6 Address Prefix Reserved for Documentation</title>
+
+<author initials='E.' surname='Horley' fullname='Ed Horley'>
+<organization>HexaBuild</organization>
+<address>
+<email>ed@hexabuild.io</email>
+</address>
+</author>
+
+<author initials='T.' surname='Coffeen' fullname='Tom Coffeen'>
+<organization>HexaBuild</organization>
+<address>
+<email>tom@hexabuild.io</email>
+</address>
+</author>
+
+<author initials='S.' surname='Hogg' fullname='Scott Hogg'>
+<organization>HexaBuild</organization>
+<address>
+<email>scott@hexabuild.io</email>
+</address>
+</author>
+
+<author initials='N.' surname='Buraglio' fullname='Nick Buraglio'>
+<organization>Energy Sciences Network</organization>
+<address>
+<email>buraglio@es.net</email>
+</address>
+</author>
+
+<author initials='K.' surname='Myers' fullname='Kevin Myers'>
+<organization>IP ArchiTechs</organization>
+<address>
+<email>kevin.myers@iparchitechs.com</email>
+</address>
+</author>
+
+<author initials='C.' surname='Cummings' fullname='Chris Cummings'>
+<organization>Energy Sciences Network</organization>
+<address>
+<email>chriscummings@es.net</email>
+</address>
+</author>
+
+<author initials='R.' surname='White' fullname='Russ White'>
+<organization>Juniper Networks</organization>
+<address>
+<email>russ@riw.us</email>
+</address>
+</author>
+
+<date/>
+
+<abstract>
+<t>TTo reduce the likelihood of addressing conflicts and confusion between lab deployments and non-lab (i.e., production) deployments, an IPv6 unicast address prefix is reserved for use in lab, proof-of-concept, and validation networks as well as for for any similar use case. This document describes the use of the IPv6 address prefix 0200::/7 as a prefix reserved for this purpose (repurposing the deprecated OSI NSAP-mapped prefix).</t>
+</abstract>
+
+</front>
+
+<middle>
+
+<section title="Introduction" toc="default">
+
+<t>The address architecture for IPv6 (<xref target="RFC4291" />) does not explicitly define any prefixes allocated exclusively for lab use, nor is such address space allocated in <xref target="RFC6890" />. While lab deployments could potentially use IPv6 address prefixes typically assigned and configured in non-lab network, the use of such addressing in lab environments may create addressing conflicts and operational confusion. For instance, designing labs utilizing ULA fc00::/7 <xref target="RFC4193" /> is problematic due to the random global ID requirement preventing hierarchical network prefix design possibilities. Further, default address selection behavior <xref target="RFC6724" /> by end nodes may result in a depreferencing of such addresses and prevent lab deployments from accurately modeling their desired non-lab equivalents.</t>
+
+<t>To resolve these problems involved in building large scale lab networks, and pre-staging large-scale networks for deployment, this document allocates the IPv6 address prefix 0200::/7 for these purposes.</t>
+
+</section> <!-- end of introduction -->
+
+<section title="New Lab IPv6 Address Prefix" toc="default">
+
+<t>The prefix reserved for lab and testing purposes is 0200::/7.</t>
+
+</section> <!-- end of new lab ipv6 address space -->
+
+<section title="Operational Implications" toc="default">
+
+<t>This space SHOULD NOT be employed for addressing use cases which are already defined in other RFCs. For example, the current IPv6 documentation prefix of 2001:db8::/32 documented in <xref target="RFC6890" />, and expanded to include 3ffe::/16 included in <xref target="I-D.ietf-horley-v6ops-expand-doc" />, SHOULD NOT be used for the use cases described in this document. The address space set aside in this document SHOULD NOT be used for performance testing or validation, as described in <xref target="RFC5180" />.</t>
+
+<t>Because this address prefix has previously been used for the OSI NSAP-mapped prefix set in <xref target="RFC4048" /> and <xref target="RFC4548" />, and deprecated, this address prefix is already limited in its usability. In addition, the address prefix was returned to IANA and is available to be marked for lab or other purposes.</t>
+
+<t>This assignment implies that IPv6 network operators SHOULD add this address prefix to the list of non-routeable IPv6 address space, and if packet filters are deployed, then this address prefix SHOULD be added to packet filters. This is not a local-use address prefix so these filters may be used in both local and public contexts.</t>
+   
+</section> <!-- end of operational implications -->
+
+<section title="IANA Considerations" toc="default">
+
+<t>IANA is to record the reservation of the IPv6 global unicast address prefix  0200::/7 as a lab-only prefix in the IPv6 address registry. No end party is to be assigned this address.</t>
+
+</section> <!-- end of IANA considerations -->
+
+<section title="Security Considerations" toc="default">
+
+<t>The addresses assigned for lab and staging use SHOULD be filtered as noted above.</t>
+
+<t>Setting aside address space for lab and staging use, and adding this address space to common filters to prevent destinations in this space from being routed in production networks (including the global Internet) improves security by preventing the leakage of prefixes used for testing into production environments. As such, setting aside this space improves the overall security posture of the Internet.</t>
+
+</section> <!-- end of security considerations -->
+
+<section title="Acknowledgements" toc="default">
+
+<t>The authors acknowledge the work of Bob Hinden and Stephen Deering, in authoring the protocol standard and the addressing architecture for IPv6.</t>
+
+</section> <!-- end of acknowledgements -->
+
+</middle>
+
+<back>
+
+<references title="Normative References">
+<!--?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml"?-->
+&RFC2119;
+
+</references> <!-- end of normative references -->
+
+<references title="Informative References">
+
+&RFC3515;
+&RFC4048;
+&RFC4193;
+&RFC4291;
+&RFC4548;
+&RFC5180;
+&RFC6724;
+&RFC6890;
+
+<?rfc include="reference.I-D.ietf-horley-v6ops-expand-doc.xml"?>
+
+</references> <!-- end of informative references -->
+
+</back>
+</rfc>
