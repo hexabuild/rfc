@@ -1,13 +1,26 @@
 1. Introduction
-In this document we analyze the impact of multihoming residential and small business CPE devices without using BGP or other routing protocols and recommend simple ways for the CPE to detect multihoming and what behaviors each CPE should have if multihoming is detected.
+In this document we analyze the impact of multihoming residential, small business, and SD-WAN CPE devices
+without the use of BGP or other routing protocols.We detail methodology for CPE devices to detect multihoming
+and define what behaviors each CPE should have if multihoming is detected.
 
 2. Defining the IPv6 Residential Multihomed Network Scenerios
-In this section we describe two multihoming scenerios that can be addressed with the proposed solution that are taken from RFC 7157 (Section 3.1). The first (Section 2.1) is a multihomed network with two CPE's and different Service Providers. The second (Section 2.2) is a multihomed network with one CPE and different Service Providers.
+In many deployment models use of BGP or other routing protocols is too cumbersome, too complex, or
+otherwise undesirable. While there exists multiple options for the architecture of multihoming IPv4 only
+networks with the use of NAT or NAP-T, the global addressing nature of IPv6 creates a management model
+that for many organizations is difficult to operationally manage and without an analogous mechanism for IPv6.
+
+In this section we describe two multihoming scenerios that can be addressed with the proposed solution
+that are taken from RFC 7157 (Section 3.1). The first (Section 2.1) is a multihomed network with two CPE's
+and different Service Providers. The second (Section 2.2) is a multihomed network with one CPE and different
+Service Providers.
 
 2.1 Two CPE devices each with a different IPv6 Internet Service Provider connected to each one
    Scenario 1: (as defined in RFC 7157)
 
-   In this scenario, two or more routers are present on a single link shared with the host(s).  Each router is, in turn, connected to a different service provider network, which provides independent address assignment and DNS recursive name servers.  A host in this environment would be offered multiple prefixes and DNS recursive name servers advertised from the two different routers.
+   In this scenario, two or more routers are present on a single link shared with the host(s).
+   Each router is, in turn, connected to a different service provider network, which provides independent
+   address assignment and DNS recursive name servers.  A host in this environment would be offered multiple
+   prefixes and DNS recursive name servers advertised from the two different routers.
 
                                      +------+       ___________
                        +-----+       |      |      /           \
@@ -30,7 +43,11 @@ In this section we describe two multihoming scenerios that can be addressed with
 
   Scenario 2: (as defined in RFC 7157)
 
-   In this scenario, a single gateway router connects the host to two or more upstream service provider networks.  This gateway router would receive prefix delegations and a different set of DNS recursive name servers from each independent service provider network.  The gateway, in turn, advertises the provider prefixes to the host, and for DNS, may either act as a lightweight DNS cache server or advertise the complete set of service provider DNS recursive name servers to the hosts.
+   In this scenario, a single gateway router connects the host to two or more upstream service provider
+   networks.  This gateway router would receive prefix delegations and a different set of DNS recursive
+   name servers from each independent service provider network.  The gateway, in turn, advertises the
+   provider prefixes to the host, and for DNS, may either act as a lightweight DNS cache server or advertise
+   the complete set of service provider DNS recursive name servers to the hosts.
 
                                      +------+       ___________
                        +-----+       |      |      /           \
@@ -52,23 +69,34 @@ In this section we describe two multihoming scenerios that can be addressed with
 
 3. Problem Statement
 
-RFC 7157 states in section 3.3 several scenerios outlining the challenged in IPv6 deployments for multihomed networks with multiple prefix configuration having either Global Unicast Addresses (GUA) or Unique Local Addresses (ULA). This RFC attempts to address scenerios 1 and 2 and provide optional easily implemented but dynamic methods for CPE device behaviors. These behaviors can be overrided by manual configuration of the CPE devices allow for more customized CPE behavior without impacting the capabilities of other CPE's on a given shared layer 2 LAN segment.
+RFC 7157 states in section 3.3 several scenerios outlining the challenged in IPv6 deployments for multihomed
+networks with multiple prefix configuration having either Global Unicast Addresses (GUA) or Unique Local
+Addresses (ULA). This RFC attempts to address scenerios 1 and 2 and provide optional easily implemented but
+dynamic methods for CPE device behaviors. These behaviors can be overrided by manual configuration of the CPE
+devices allow for more customized CPE behavior without impacting the capabilities of other CPE's on a given
+shared layer 2 LAN segment.
 
-3.1 Scenerio 1 - Host receives IPv6 addresses from both Service Provider prefixes and has two logical default gateways to reach the outside
+3.1 Scenerio 1 - Host receives IPv6 addresses from both Service Provider prefixes and has two logical default
+ gateways to reach the outside
 
-In this scenerio the principle concerns are filter lists that might block traffic from the wrong sourcing IPv6 prefix and asymetrical routing.
+In this scenerio the principle concerns are filter lists that might block traffic from the wrong sourcing IPv6
+prefix and asymetrical routing.
 
-3.2 Secenerio 2 - Host receives IPv6 addresses from both Servvice Provider prefixes and has one logical default gateway to reach the outside
+3.2 Secenerio 2 - Host receives IPv6 addresses from both Servvice Provider prefixes and has one logical default
+gateway to reach the outside
 
-In this scenerio the principle concerns are source address selection and determining preferred access to a given network
-
+In this scenerio the principle concerns are source address selection and determining preferred access to a given
+network.
 
 4. Proposed Method for CPE to address Problem Statement
 
-CPE devices should perform simple RA learning on their LAN interfaces to discover and register other IPv6 prefixes operating on a given shared layer 2 network segment. The following steps should be employed by the CPE:
+CPE devices should perform simple RA learning on their LAN interfaces to discover and register other IPv6 prefixes
+operating on a given shared layer 2 network segment. The following steps should be employed by the CPE:
 
 4.1 Learning on LAN
-A CPE will listen for multicast RS on the local link. Specifically traffic destined for ff02::1. In addition, the CPE should listen for other CPE devices that send out RA's or reply with an RA to an RS that happen on the local link. This allows the CPE:
+A CPE will listen for multicast RS on the local link. Specifically traffic destined for ff02::1. In addition,
+the CPE should listen for other CPE devices that send out RA's or reply with an RA to an RS that happen on the
+local link. This allows the CPE:
 1. to know the link-local address of the other CPE
 2. to know the IPv6 prefix(es) that the CPE is advertising
 3. to know the potential DHCPv6 or SLAAC state of the CPE (via standard flag settings)
@@ -76,7 +104,8 @@ A CPE will listen for multicast RS on the local link. Specifically traffic desti
 5. to build an IPv6 address in the IPv6 prefix of the other network
 6. to learn the DHCPv6 optional DNS information or the RFC 6106 DNS information in the RA
 
-Once a CPE is able to establish the above data points it can use several methods to validate reachability and to perform specific actions based of the information. It can:
+Once a CPE is able to establish the above data points it can use several methods to validate reachability and to perform
+specific actions based of the information. It can:
 1. determine if the other CPE device is able to forward IPv6 traffic to the outside
 2. determine if the CPE is providing legitimate DNS proxy or caching services
 3. determine if the other CPE supports similar functions
@@ -87,18 +116,22 @@ Once a CPE is able to establish the above data points it can use several methods
 8. agree upon RA weights to determine preferred route forwarding
 
 5. CPE Behavior Recommendations
-This section covers recommendations for CPE manufactures in supporting some or all the functions described below. Each recommendation is catorgized as MUST, SHOULD and RECOMMENDED (or whatever the RFC standards are for this)
+This section covers recommendations for CPE manufactures in supporting some or all the functions described below. Each
+recommendation is catorgized as MUST, SHOULD and RECOMMENDED (or whatever the RFC standards are for this)
 
 5.1 MUST
 5.2 SHOULD
 5.3 RECOMMENDED (OPTIONAL)
 
 Other ideas:
-1st CPE device on a layer 2 segment should set its RA Route Preference to medium (middle of the road) and the next CPE device to come online should set to low. That way a manual override configuration will set to high (check box setting on the CPE GUI)
-CPE devices should obtain an address in the prefix of the other CPE in order to do testing and reach-ability detection outside of normal IPv6 ND behaviors.
+1st CPE device on a layer 2 segment should set its RA Route Preference to medium (middle of the road) and the next CPE
+device to come online should set to low. That way a manual override configuration will set to high (check box setting
+on the CPE GUI)CPE devices should obtain an address in the prefix of the other CPE in order to do testing and
+reach-ability detection outside of normal IPv6 ND behaviors.
 
-I'm open to eliminating the NPTv6 configuration and just doing the route forwarding solution at first, but I think NPTv6 would be simplier since many of the CPE stacks have NAT44/NPAT44 stacks already.
+-----
 
-Also open to thinking about some more interesting use cases like laptop w/ Cable/DSL via wifi and perhaps a 4G/LTE connection via USB or built in. But I just assume the OS and RFC 6724 will address most of that situation.
+Also open to thinking about some more interesting use cases like laptop w/ Cable/DSL via wifi and perhaps a 4G/LTE
+connection via USB or built in. But I just assume the OS and RFC 6724 will address most of that situation.
 
 - EOF
