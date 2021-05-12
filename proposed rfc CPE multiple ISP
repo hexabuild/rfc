@@ -5,26 +5,29 @@ and define what behaviors each CPE should have if multihoming is detected.
 
 2. Defining the IPv6 Residential Multihomed Network Scenerios
 In many deployment models use of BGP or other routing protocols is too cumbersome, too complex, or
-otherwise undesirable. While there exists multiple options for the architecture of multihoming IPv4 only
+otherwise undesirable. While there exists multiple options for the architecture of multihoming IPv4-only
 networks with the use of NAT or NAP-T, the global addressing nature of IPv6 creates a management model
-that for many organizations is difficult to operationally manage and without an analogous mechanism for IPv6.
+that for many organizations is difficult to operationally manage, and without an analogous mechanism to
+operate similarly for IPv6.
 
 In this section we describe two multihoming scenerios that can be addressed with the proposed solution
 that are taken from RFC 7157 (Section 3.1). The first (Section 2.1) is a multihomed network with two CPE's
 and different Service Providers. The second (Section 2.2) is a multihomed network with one CPE and different
 Service Providers.
 
-2.1 Two CPE devices each with a different IPv6 Internet Service Provider connected to each one
+2.1 Two customer premise equipment (CPE) devices each with a different IPv6 Internet Service Provider connected
+    to each one
    Scenario 1: (as defined in RFC 7157)
 
-   In this scenario, two or more routers are present on a single link shared with the host(s).
-   Each router is, in turn, connected to a different service provider network, which provides independent
+   In this scenario, two or more CPE devices are present on a single link shared with the host(s).
+   Each CPE is, in turn, connected to a different service provider network, which provides independent
    address assignment and DNS recursive name servers.  A host in this environment would be offered multiple
-   prefixes and DNS recursive name servers advertised from the two different routers.
+   prefixes and DNS recursive name servers advertised from the two different CPE devices. In this scenario cpe1
+   and cpe2 act as first hop routers for all hosts connected to SW1.
 
                                      +------+       ___________
                        +-----+       |      |      /           \
-                       |     |=======| rtr1 |=====/   network   \
+                       |     |=======| cpe1 |=====/   network   \
                        |     |port1  |      |     \      1      /
           +------+     |     |       +------+      \___________/
           |      |     |     |
@@ -32,7 +35,7 @@ Service Providers.
           |      |     |     |
           +------+     |     |       +------+       ___________
                        |     |port2  |      |      /           \
-                       |     |-------| rtr2 |=====/   network   \
+                       |     |-------| cpe2 |=====/   network   \
                        +-----+       |      |     \      2      /
                                      +------+      \___________/
 
@@ -45,21 +48,21 @@ Service Providers.
 
    In this scenario, a single gateway router connects the host to two or more upstream service provider
    networks.  This gateway router would receive prefix delegations and a different set of DNS recursive
-   name servers from each independent service provider network.  The gateway, in turn, advertises the
+   name servers from each independent service provider network.  The gateway (GW-rtr), in turn, advertises the
    provider prefixes to the host, and for DNS, may either act as a lightweight DNS cache server or advertise
    the complete set of service provider DNS recursive name servers to the hosts.
 
                                      +------+       ___________
                        +-----+       |      |      /           \
-                       |     |=======| rtr1 |=====/   network   \
+                       |     |=======| cpe1 |=====/   network   \
                        |     |port1  |      |     \      1      /
           +------+     |     |       +------+      \___________/
           |      |     |     |
-          | hosts|-----| GW  |
+          | hosts|-----| GW- |
           |      |     | rtr |
           +------+     |     |       +------+       ___________
                        |     |port2  |      |      /           \
-                       |     |-------| rtr2 |=====/   network   \
+                       |     |-------| cpe2 |=====/   network   \
                        +-----+       |      |     \      2      /
                                      +------+      \___________/
 
@@ -72,7 +75,7 @@ Service Providers.
 RFC 7157 states in section 3.3 several scenerios outlining the challenged in IPv6 deployments for multihomed
 networks with multiple prefix configuration having either Global Unicast Addresses (GUA) or Unique Local
 Addresses (ULA). This RFC attempts to address scenerios 1 and 2 and provide optional easily implemented but
-dynamic methods for CPE device behaviors. These behaviors can be overrided by manual configuration of the CPE
+dynamic methods for CPE device behaviors. These behaviors can be over-ridden by manual configuration of the CPE
 devices allow for more customized CPE behavior without impacting the capabilities of other CPE's on a given
 shared layer 2 LAN segment.
 
@@ -82,7 +85,7 @@ shared layer 2 LAN segment.
 In this scenerio the principle concerns are filter lists that might block traffic from the wrong sourcing IPv6
 prefix and asymetrical routing.
 
-3.2 Secenerio 2 - Host receives IPv6 addresses from both Servvice Provider prefixes and has one logical default
+3.2 Secenerio 2 - Host receives IPv6 addresses from both Service Provider prefixes and has one logical default
 gateway to reach the outside
 
 In this scenerio the principle concerns are source address selection and determining preferred access to a given
@@ -111,7 +114,11 @@ specific actions based of the information. It can:
 3. determine if the other CPE supports similar functions
 4. insert appropriate route forwarding entries
 5. request an additional /64 prefix via DHCPv6 prefix delegation (optional)
+
+\\ Should we make this required? This feels like a critical piece.
 6. build an NPTv6 mapping for the foreign CPE IPv6 prefix to the new DHCPV6 prefix delegation obtained (optional)
+\\ End
+
 7. build DNS forwarding entries to allow for recursive resolver capabilities with a given DNS scope
 8. agree upon RA weights to determine preferred route forwarding
 
@@ -125,9 +132,12 @@ recommendation is catorgized as MUST, SHOULD and RECOMMENDED (or whatever the RF
 
 Other ideas:
 1st CPE device on a layer 2 segment should set its RA Route Preference to medium (middle of the road) and the next CPE
-device to come online should set to low. That way a manual override configuration will set to high (check box setting
-on the CPE GUI)CPE devices should obtain an address in the prefix of the other CPE in order to do testing and
+device to come online should set to low. That way a manual override configuration will set to high (i.e. check box setting
+on the CPE GUI) CPE devices should obtain an address in the prefix of the other CPE in order to do testing and
 reach-ability detection outside of normal IPv6 ND behaviors.
+
+Discuss: Should detail how the route table builds for the CPE once obtained from the alternate CPE. There may be some
+creative, or at least more specific routing that needs to happen. 
 
 -----
 
