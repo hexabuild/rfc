@@ -70,6 +70,38 @@ Service Providers.
                                (Scenario 2)
 
 
+Alternative diagram from RFC 8028:
+          +---------+   +---------+    +---------+    +---------+
+          |   ISP   |   |   ISP   |    |   ISP   |    |   ISP   |
+          +----+----+   +----+----+    +----+----+    +----+----+
+               |             |              |              |
+               |             |              |              |
+          +----+----+   +----+----+    +----+----+    +----+----+
+          |  Router |   |  Router |    |  Router |    |  Router |
+          +----+----+   +----+----+    +----+----+    +----+----+
+               |             |              |              |
+               +------+------+              |  +--------+  |
+                      |                     +--+  Host  +--+
+                 +----+----+                   +--------+
+                 |  Host   |
+                 +---------+
+               Common LAN Case            Disjoint LAN Case
+            (Multihomed Network)          (Multihomed Host)
+
+                       Figure 2: Two Simple Networks
+
+                                                +---------+  |
+                                    ( ISP A ) - +  Bob-A  +--+  +-----+
+    +-------+                      /            +---------+  +--+     |
+    |       |                     /                          |  |     |
+    | Alice +--/--( The Internet )                              | Bob |
+    |       |                     \                          |  |     |
+    +-------+                      \            +---------+  +--+     |
+                                    ( ISP B ) - +  Bob-B  +--+  +-----+
+                                                +---------+  |
+
+                 Figure 3: PIOs, RIOs, and Default Routes
+
 3. Problem Statement
 
 RFC 7157 states in section 3.3 several scenerios outlining the challenged in IPv6 deployments for multihomed
@@ -143,5 +175,16 @@ creative, or at least more specific routing that needs to happen.
 
 Also open to thinking about some more interesting use cases like laptop w/ Cable/DSL via wifi and perhaps a 4G/LTE
 connection via USB or built in. But I just assume the OS and RFC 6724 will address most of that situation.
+
+RFC 4191 - Default Router Preferences and More-Specific Routes - Section 2.1
+RFC 4311 - IPv6 Host-to-Router Load Sharing
+RFC 7157 - IPv6 Multihoming without Network Address Translation
+RFC 8028 - First-Hop Router Selection by Hosts in a Multi-Prefix Network
+RFC 8319 - Support for Adjustable Maximum Router Lifetimes per Link
+RFC 
+
+   [SPAR-v6]  IANA, "IANA IPv6 Special-Purpose Address Registry",
+              <https://www.iana.org/assignments/iana-ipv6-special-
+              registry/>.
 
 - EOF
