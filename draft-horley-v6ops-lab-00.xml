@@ -155,7 +155,7 @@
 &RFC6724;
 &RFC6890;
 
-<?rfc include="reference.I-D.ietf-horley-v6ops-expand-doc.xml"?>
+<?rfc include="reference.I-D.horley-v6ops-expand-doc.xml"?>
 
 </references> <!-- end of informative references -->
 
