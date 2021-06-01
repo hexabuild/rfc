@@ -88,7 +88,7 @@
 
 <section title="Introduction" toc="default">
 
-<t>The address architecture for IPv6 <xref target="RFC4291" /> does not specifically allocate an IPv6 address prefix for use for documentation purposes. The current IPv6 documentation prefix of 2001:db8::/32 defined in <xref target="RFC6890" /> is not large enough for many design, lab, and documentation requirements. An example of this limitation is apparent when doumenting a multi-provder ISP network address plan. An additional, larger allocation would help address these needs.</t>
+<t>The address architecture for IPv6 <xref target="RFC4291" /> does not specifically allocate an IPv6 address prefix for use for documentation purposes. The current IPv6 documentation prefix of 2001:db8::/32 defined in <xref target="RFC6890" /> is not large enough for many design, lab, and documentation requirements. An example of this limitation is apparent when doumenting a multi provder ISP network address plan. An additional, larger allocation would help address these needs.</t>
 
 </section> <!-- end of introduction -->
 
@@ -100,9 +100,9 @@
 
 <section title="Operational Implications" toc="default">
 
-<t>This assignment implies that IPv6 network operators should add this address prefix to the list of non-routeable, bogon IPv6 address space, and if packet filters are deployed, this address prefix should be added to packet filters intended to prevent public routing of such address space.</t>
+<t>This assignment implies that IPv6 network operators should add this address prefix to the list of non routeable, bogon IPv6 address space, and if packet filters are deployed, this address prefix should be added to packet filters intended to prevent public routing of such address space.</t>
 
-<t>Because this address prefix has previously been used for the 6bone, and subsequently the 6bone was shutdown, this address prefix is already listed in many non-routeable tables, filters and lists. It was also depreferred in <xref target="RFC6724" /> which limits its usability. In addition, the address prefix was returned to IANA and is available to be marked for documentation purposes.</t>
+<t>Because this address prefix has previously been used for the 6bone, and subsequently the 6bone was shutdown, this address prefix is already listed in many non routeable tables, filters and lists. It was also depreferred in <xref target="RFC6724" /> which limits its usability. In addition, the address prefix was returned to IANA and is available to be marked for documentation purposes.</t>
 
 <t>This is not a local-use address prefix, and the filters may be used in both local and public contexts.</t>
 
