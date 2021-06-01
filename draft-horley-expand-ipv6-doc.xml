@@ -133,12 +133,13 @@
 <references title="Normative References">
 
 &RFC2119;
-&RFC4291;
+
 
 </references> <!-- end of normative references -->
 
 <references title="Informative References">
 
+&RFC4291;
 &RFC6724;
 &RFC6890;
 
