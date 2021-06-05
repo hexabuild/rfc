@@ -106,7 +106,7 @@
 
 <section title="Operational Implications" toc="default">
 
-<t>This space SHOULD NOT be employed for addressing use cases which are already defined in other RFCs. For example, the current IPv6 documentation prefix of 2001:db8::/32 documented in <xref target="RFC6890" />, and expanded to include 3ffe::/16 included in <xref target="I-D.ietf-horley-v6ops-expand-doc" />, SHOULD NOT be used for the use cases described in this document. The address space set aside in this document SHOULD NOT be used for performance testing or validation, as described in <xref target="RFC5180" />.</t>
+<t>This space SHOULD NOT be employed for addressing use cases which are already defined in other RFCs, such as addrfesses set apart for documentation, testing, etc.</t>
 
 <t>Because this address prefix has previously been used for the OSI NSAP-mapped prefix set in <xref target="RFC4048" /> and <xref target="RFC4548" />, and deprecated, this address prefix is already limited in its usability. In addition, the address prefix was returned to IANA and is available to be marked for lab or other purposes.</t>
 
@@ -154,8 +154,6 @@
 &RFC5180;
 &RFC6724;
 &RFC6890;
-
-<?rfc include="reference.I-D.horley-v6ops-expand-doc.xml"?>
 
 </references> <!-- end of informative references -->
 
