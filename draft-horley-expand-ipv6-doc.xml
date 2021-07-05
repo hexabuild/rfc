@@ -10,6 +10,7 @@
 <!ENTITY RFC4291 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4291.xml">
 <!ENTITY RFC6724 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6724.xml">
 <!ENTITY RFC6890 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6890.xml">
+<!ENTITY RFC8200 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8200.xml">
 ]>
 
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
@@ -89,7 +90,7 @@
 
 <section title="Introduction" toc="default">
 
-<t>The address architecture for IPv6 <xref target="RFC4291" /> does not specifically allocate an IPv6 address prefix for use for documentation purposes. The current IPv6 documentation prefix of 2001:db8::/32 defined in <xref target="RFC6890" /> is not large enough for many design and documentation requirements.</t>
+<t>The address architecture for IPv6 <xref target="RFC4291" /> does not specifically allocate an IPv6 address prefix for use for documentation purposes. The current IPv6 documentation prefix of 2001:db8::/32 defined in <xref target="RFC6890" /> is not large enough for many design and documentation requirements. No additional documentation prefix(es) were allocated in the IPv6 Specification <xref target="RFC8200" />.</t>
 
 <t>Example use cases for documentation prefixes beyond that of a /32 prefix:</t>
 <t>Reduced operational impacts by having sufficient prefixes decidicated for documenting and sharing designs and best practices,</t>
@@ -161,6 +162,7 @@
 &RFC2119;
 &RFC3701;
 &RFC3879;
+&RFC8200;
 
 </references> <!-- end of normative references -->
 
