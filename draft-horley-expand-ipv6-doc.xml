@@ -56,17 +56,17 @@
 </address>
 </author>
 
-<author initials='K.' surname='Myers' fullname='Kevin Myers'>
-<organization>IP ArchiTechs</organization>
-<address>
-<email>kevin.myers@iparchitechs.com</email>
-</address>
-</author>
-
 <author initials='C.' surname='Cummings' fullname='Chris Cummings'>
 <organization>Energy Sciences Network</organization>
 <address>
 <email>chriscummings@es.net</email>
+</address>
+</author>
+
+<author initials='K.' surname='Myers' fullname='Kevin Myers'>
+<organization>IP ArchiTechs</organization>
+<address>
+<email>kevin.myers@iparchitechs.com</email>
 </address>
 </author>
 
