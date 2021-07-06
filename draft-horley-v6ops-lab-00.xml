@@ -13,6 +13,7 @@
 <!ENTITY RFC5180 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5180.xml">
 <!ENTITY RFC6724 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6724.xml">
 <!ENTITY RFC6890 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6890.xml">
+<!ENTITY RFC6890 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8200.xml">
 ]>
 
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
@@ -59,17 +60,17 @@
 </address>
 </author>
 
-<author initials='K.' surname='Myers' fullname='Kevin Myers'>
-<organization>IP ArchiTechs</organization>
-<address>
-<email>kevin.myers@iparchitechs.com</email>
-</address>
-</author>
-
 <author initials='C.' surname='Cummings' fullname='Chris Cummings'>
 <organization>Energy Sciences Network</organization>
 <address>
 <email>chriscummings@es.net</email>
+</address>
+</author>
+
+<author initials='K.' surname='Myers' fullname='Kevin Myers'>
+<organization>IP ArchiTechs</organization>
+<address>
+<email>kevin.myers@iparchitechs.com</email>
 </address>
 </author>
 
@@ -83,7 +84,7 @@
 <date/>
 
 <abstract>
-<t>TTo reduce the likelihood of addressing conflicts and confusion between lab deployments and non-lab (i.e., production) deployments, an IPv6 unicast address prefix is reserved for use in lab, proof-of-concept, and validation networks as well as for for any similar use case. This document describes the use of the IPv6 address prefix 0200::/7 as a prefix reserved for this purpose (repurposing the deprecated OSI NSAP-mapped prefix).</t>
+<t>To reduce the likelihood of addressing conflicts and confusion between lab deployments and non-lab (i.e., production) deployments, an IPv6 unicast address prefix is reserved for use in lab, proof-of-concept, and validation networks as well as for for any similar use case. This document describes the use of the IPv6 address prefix 0200::/7 as a prefix reserved for this purpose (repurposing the deprecated OSI NSAP-mapped prefix).</t>
 </abstract>
 
 </front>
@@ -92,9 +93,18 @@
 
 <section title="Introduction" toc="default">
 
-<t>The address architecture for IPv6 (<xref target="RFC4291" />) does not explicitly define any prefixes allocated exclusively for lab use, nor is such address space allocated in <xref target="RFC6890" />. While lab deployments could potentially use IPv6 address prefixes typically assigned and configured in non-lab network, the use of such addressing in lab environments may create addressing conflicts and operational confusion. For instance, designing labs utilizing ULA fc00::/7 <xref target="RFC4193" /> is problematic due to the random global ID requirement preventing hierarchical network prefix design possibilities. Further, default address selection behavior <xref target="RFC6724" /> by end nodes may result in a depreferencing of such addresses and prevent lab deployments from accurately modeling their desired non-lab equivalents.</t>
+<t>The address architecture for IPv6 (<xref target="RFC4291" />) does not explicitly define any prefixes allocated exclusively for lab use, nor is such address space allocated in <xref target="RFC6890" /> or in <xref target="RFC8200" />. While lab deployments could potentially use IPv6 address prefixes typically assigned and configured in non-lab network, the use of such addressing in lab environments may create addressing conflicts and operational confusion. For instance, designing labs utilizing ULA fc00::/7 <xref target="RFC4193" /> is problematic due to the random global ID requirement preventing hierarchical network prefix design possibilities. Further, default address selection behavior <xref target="RFC6724" /> by end nodes may result in a depreferencing of such addresses and prevent lab deployments from accurately modeling their desired non-lab equivalents.</t>
 
-<t>To resolve these problems involved in building large scale lab networks, and pre-staging large-scale networks for deployment, this document allocates the IPv6 address prefix 0200::/7 for these purposes.</t>
+<t>To resolve these problems involved in building large scale lab networks, and pre-staging, or automating large-scale networks for deployment, this document allocates the IPv6 address prefix 0200::/7 for these purposes.</t>
+
+<t>The goal is to allow organization to share working lab configuration files (with little or no need of modification) to be deployed in a third party lab environment like,</t>
+<t>public and private clouds,</t>
+<t>virtualization or hosting environments,</t>
+<t>and in other networks like Service Providers, Enterprise, Government, IoT, and Energy,</t>
+<t>all with the knowledge that the lab GUA address space will perform the same as any GUA but with the added knowledge that filtering will be used to protect accidential leaks to the Internet.</t>
+    
+<t>The following criteria is for selecting the lab prefix:</t>
+<t>The precendence for the lab prefix should no be lower than the GUA prefix as defined in <xref target="RFC6724" /> (unlike ULA). Reduce the operational impacts to IANA and the RIR's in selecting lab prefix space.</t>
 
 </section> <!-- end of introduction -->
 
@@ -106,8 +116,12 @@
 
 <section title="Operational Implications" toc="default">
 
-<t>This space SHOULD NOT be employed for addressing use cases which are already defined in other RFCs, such as addrfesses set apart for documentation, testing, etc.</t>
+<t>This space SHOULD NOT be employed for addressing use cases which are already defined in other RFCs, such as addresses set apart for documentation, testing, etc.</t>
 
+<t>Enterprise and large scale networks have some specific criteria around building and validating prior to deployment. The issues with ULA for infrastructure modeling and labbing at the host level are more impactful in large enterprises. This is due to the increased focus on large scale hosts, servers and apps testing. Also, it is likely that both GUA and ULA may co-exist (or are planned) and reconfiguring lab hosts and networks isn't practical or desirable due to inconsistent results for host preference due to <xref target="RFC6724" /> behavior.</t>
+
+<t>Most large enterprises strive to build lab, dev, and qa environments that reflect production as accurately as possible. This is a fairly straightforward way to avoid disparity between production and non-production. Enterprise environments is an area that needs increased IPv6 adoption.  In an effort to make it easier to model a global enterprise and to avoid the pitfalls of ULA de-preferenced host behavior or squatting on other IPv6 space, a specific IPv6 lab prefix is being assigned.</t>
+    
 <t>Because this address prefix has previously been used for the OSI NSAP-mapped prefix set in <xref target="RFC4048" /> and <xref target="RFC4548" />, and deprecated, this address prefix is already limited in its usability. In addition, the address prefix was returned to IANA and is available to be marked for lab or other purposes.</t>
 
 <t>This assignment implies that IPv6 network operators SHOULD add this address prefix to the list of non-routeable IPv6 address space, and if packet filters are deployed, then this address prefix SHOULD be added to packet filters. This is not a local-use address prefix so these filters may be used in both local and public contexts.</t>
@@ -140,8 +154,10 @@
 
 <references title="Normative References">
 <!--?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml"?-->
-&RFC2119;
 
+&RFC2119;
+&RFC8200;
+    
 </references> <!-- end of normative references -->
 
 <references title="Informative References">
