@@ -81,7 +81,7 @@
 <date/>
 
 <abstract>
-<t>To reduce the likelihood of conflict and confusion when relating documented examples to deployed systems, an IPv6 unicast address prefix is reserved for use in examples in RFCs, books, documentation, and the like.  This document adds additional prefixes to the existing reserved IPv6 prefix, 2001:db8::/32. This document describes the use of the IPv6 address prefix 3ffe::/16 (formerly 6bone) and fec0::/10 (formerly site-local) as reserved prefixes for use in documentation.</t>
+<t>To reduce the likelihood of conflict and confusion when relating documented examples to deployed systems, an IPv6 unicast address prefix is reserved for use in examples in RFCs, books, documentation, and the like.  This document adds additional prefixes to the existing reserved IPv6 prefix, 2001:db8::/32. This document describes the use of the IPv6 address prefixes 3ffe::/16 (formerly 6bone) and fec0::/10 (formerly site-local) as reserved prefixes for use in documentation.</t>
 </abstract>
 
 </front>
