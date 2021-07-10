@@ -27,7 +27,7 @@
 
 <front>
 
-<title>Expanding the IPv6 Address Prefix Reserved for Documentation</title>
+<title>Reserving Additional IPv6 Address Prefixes for Use in Documentation</title>
 
 <author initials='E.' surname='Horley' fullname='Ed Horley'>
 <organization>HexaBuild</organization>
@@ -81,7 +81,7 @@
 <date/>
 
 <abstract>
-<t>To reduce the likelihood of conflict and confusion when relating documented examples to deployed systems, an IPv6 unicast address prefix is reserved for use in examples in RFCs, books, documentation, and the like.  This document adds additional prefixes to the existing reserved IPv6 prefix, 2001:db8::/32. This document describes the use of the IPv6 address prefixes 3ffe::/16 (formerly 6bone) and fec0::/10 (formerly site-local) as reserved prefixes for use in documentation.</t>
+<t>To reduce the likelihood of conflict and confusion when relating documented examples to deployed systems, the IPv6 unicast address prefix 2001:db8::/32 is reserved for use in examples in documentation including RFCs, books, articles, vendor manuals, etc.  This document proposes the reservation of additional IPv6 prefixes for this purpose; specifically, 3ffe::/16 (formerly 6bone) and fec0::/10 (formerly site-local).</t>
 </abstract>
 
 </front>
@@ -90,22 +90,22 @@
 
 <section title="Introduction" toc="default">
 
-<t>The address architecture for IPv6 <xref target="RFC4291" /> does not specifically allocate an IPv6 address prefix for use for documentation purposes. The current IPv6 documentation prefix of 2001:db8::/32 defined in <xref target="RFC6890" /> is not large enough for many design and documentation requirements. No additional documentation prefix(es) were allocated in the IPv6 Specification <xref target="RFC8200" />.</t>
+<t>The address architecture for IPv6 <xref target="RFC4291" /> does not specifically allocate any IPv6 address prefixes for documentation purposes. The current IPv6 documentation prefix of 2001:db8::/32 defined in <xref target="RFC6890" /> is not large enough for many design and documentation requirements. No additional documentation prefix(es) were allocated in the most recent IPv6 Specification <xref target="RFC8200" />.</t>
 
-<t>Example use cases for documentation prefixes beyond that of a /32 prefix:
+<t>These are example use cases that require a documentation IPv6 prefix larger than a /32:
     <list style="symbols">
-        <t>Reduce operational impacts by having sufficient prefixes dedicated for documenting and sharing designs and best practices,</t>
-        <t>Ability to document extremely large network architectures (Service Providers, Enterprise, Government, IoT, Energy),</t>
+        <t>Ability to document network architectures (including addressing plans) larger than a /32 (Service Providers, Enterprise, Government, IoT, Energy),</t>
         <t>Ability to document mergers and acquisitions designs for large networks (multiple /32 prefix space or larger, plus networks with multiple ASNs),</t>
-        <t>Show unique prefix identification (simple visual representation to identify separate networks)</t>
+        <t>Reduction of operational impacts by having sufficiently large IPv6 prefixes dedicated for documenting and sharing designs and best practices,</t>
+        <t>Ability to depict unique IPv6 prefix identification (simple visual representation to identify separate networks)</t>
     </list>
 </t>
 
-<t>The following criteria have been defined for selecting the documentation prefixes:
+<t>The following existing criteria are beneficially extended to the additional documentation prefixes:
     <list style="symbols">
-        <t>Filters are already commonly in use to block the prefix from The Internet.</t>
-        <t>The precedence for the documentation prefix should be 1 as defined in <xref target="RFC6724" />.</t>
-        <t>Reduce the operational impacts to IANA and the RIR's in selecting documentation prefix space.</t>
+        <t>Filters are already commonly in use to block the existing documentation prefix from the Internet.</t>
+        <t>The precedence for the existing documentation prefix is 1 as defined in <xref target="RFC6724" />.</t>
+        <t>There are no operational impacts to IANA or the RIRs with documentation prefix space.</t>
     </list>
 </t>
 
@@ -117,9 +117,9 @@
 
 </section> <!-- end of Requirements Language -->
 
-<section title="Expanded Documentation IPv6 Address Prefix" toc="default">
+<section title="Documentation IPv6 Address Prefixes" toc="default">
 
-<t>The additional prefix allocated for documentation purposes is 3ffe::/16 (formerly 6bone - <xref target="RFC3701" />) and fec0::/10 (formerly site-local - <xref target="RFC3879" />, resulting in the following prefixes for use in documentation:
+<t>The additional IPv6 address prefixes allocated for documentation purposes are 3ffe::/16 (formerly 6bone - <xref target="RFC3701" />) and fec0::/10 (formerly site-local - <xref target="RFC3879" />, resulting in the following prefixes for use in documentation:
     <list style="symbols">
         <t>fec0::/10</t>
         <t>3ffe::/16</t>
@@ -130,27 +130,27 @@
 
 <section title="Operational Implications" toc="default">
 
-<t>This assignment implies that IPv6 network operators should add this address prefix to the list of non routable, bogon IPv6 address space, and if packet filters are deployed, this address prefix should be added to packet filters intended to prevent public routing of such address space.</t>
+<t>The addition of IPv6 address prefixes for documentation implies that IPv6 network operators should add these address prefixes to their lists of non-routable/bogon IPv6 address space. If packet filters are deployed in live networks, these address prefixes should be added to those filters intended to prevent any public routing of such address space.</t>
 
-<t>Because the 3ffe::/16 address prefix was previously used for the 6bone, and subsequently the 6bone was shutdown, this address prefix is already listed in many non routable tables, filters and lists. Its precedence value per <xref target="RFC6724" /> was reduced to 1, which limits its usability. In addition, the address prefix was returned to IANA and is available to be marked for documentation purposes.</t>
+<t>Because the 3ffe::/16 address prefix was previously used for the subsequently decommissioned 6bone network, this address prefix is included in many existing non-routable prefix filters and lists. Its precedence value per <xref target="RFC6724" /> is 1, which limits its usability in production networks. In addition, the 3ffe::/16 address prefix was returned to IANA and is available to be reserved for documentation purposes.</t>
     
-<t>Similarly the fec0::/10 address prefix was previously used for site-local addressing, and thus is already listed in many non-routable tables, filters and lists. Its precedence value per <xref target="RFC3879" /> was reduced to 1, which limits its usability.  In addition, the address prefix was returned to IANA and is available to be marked for documentation purposes.</t>
+<t>Similarly the fec0::/10 address prefix was previously used for site-local addressing, and thus is already included in many non-routable prefix filters and lists. Its precedence value per <xref target="RFC3879" /> is 1, which limits its usability in production networks.  In addition, the fec0::/10 address prefix was returned to IANA and is available to be reserved for documentation purposes.</t>
 
-<t>This is not a local-use address prefix, and the filters may be used in both local and public contexts.</t>
+<t>As a documentation prefix, the former site-local scope of fec0::/10 is considered deprecated and filters may be required and used with any scope.</t>
 
 </section> <!-- end of operational implications -->
 
 <section title="IANA Considerations" toc="default">
 
-<t>These documentation prefixes have limited impact on IANA. They also have no impact on the RIR's.</t>
+<t>These documentation prefixes have limited impact on IANA and no impact on any RIRs.</t>
 
-<t>IANA is to record the allocation of the IPv6 global unicast address prefix 3ffe::/16 and fec0::/10 as documentation-only prefixes in the IPv6 address registry.  No end party is to be assigned these addresses.</t>
+<t>IANA is to record the allocation of the IPv6 global unicast address prefix 3ffe::/16 and fec0::/10 as documentation-only prefixes in the IPv6 address registry.  No end-user or service provider/LIR is to be assigned these addresses.</t>
 
 </section> <!-- end of iana considerations -->
 
 <section title="Security Considerations" toc="default">
 
-<t>IPv6 addressing documents generally do not have any direct impact on Internet infrastructure security.</t>
+<t>IPv6 addressing documentation has no direct impact on Internet security.</t>
 
 <t>However, the assignment of a new address space for documentation purposes does mean, as indicated above, that these addresses SHOULD be added to any filters required by individual operators to prevent their use for globally routed destinations.</t>
 
