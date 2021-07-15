@@ -119,11 +119,11 @@
 
 <section title="Documentation IPv6 Address Prefixes" toc="default">
 
-<t>The additional IPv6 address prefixes allocated for documentation purposes are 3ffe::/16 (formerly 6bone - <xref target="RFC3701" />) and fec0::/10 (formerly site-local - <xref target="RFC3879" />, resulting in the following prefixes for use in documentation:
+<t>The additional IPv6 address prefixes allocated for documentation purposes are 3ffe::/16 (formerly 6bone - <xref target="RFC3701" />) and fec0::/10 (formerly site-local - <xref target="RFC3879" />), resulting in the following prefixes for use in documentation:
     <list style="symbols">
         <t>fec0::/10</t>
         <t>3ffe::/16</t>
-        <t>2001:db8::/32</t>
+        <t>2001:db8::/32 - existing as defined in <xref target="RFC3879" /></t>
     </list>
 </t>
 </section> <!-- end of expanded documentation -->
@@ -134,7 +134,7 @@
 
 <t>Because the 3ffe::/16 address prefix was previously used for the subsequently decommissioned 6bone network, this address prefix is included in many existing non-routable prefix filters and lists. Its precedence value per <xref target="RFC6724" /> is 1, which limits its usability in production networks. In addition, the 3ffe::/16 address prefix was returned to IANA and is available to be reserved for documentation purposes.</t>
     
-<t>Similarly the fec0::/10 address prefix was previously used for site-local addressing, and thus is already included in many non-routable prefix filters and lists. Its precedence value per <xref target="RFC3879" /> is 1, which limits its usability in production networks.  In addition, the fec0::/10 address prefix was returned to IANA and is available to be reserved for documentation purposes.</t>
+<t>Similarly the fec0::/10 address prefix was previously used for site-local addressing, and thus is already included in many non-routable prefix filters and lists. Its precedence value per <xref target="RFC6724" /> is 1, which limits its usability in production networks.  In addition, the fec0::/10 address prefix was returned to IANA and is available to be reserved for documentation purposes.</t>
 
 <t>As a documentation prefix, the former site-local scope of fec0::/10 is considered deprecated and filters may be required and used with any scope.</t>
 
