@@ -104,7 +104,6 @@
 <t>The following existing criteria are beneficially extended to the additional documentation prefixes:
     <list style="symbols">
         <t>Filters are already commonly in use to block the existing documentation prefix from the Internet.</t>
-        <t>The precedence for the existing documentation prefix is 1 as defined in <xref target="RFC6724" />.</t>
         <t>There are no operational impacts to IANA or the RIRs with documentation prefix space.</t>
     </list>
 </t>
