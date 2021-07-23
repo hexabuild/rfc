@@ -13,7 +13,7 @@
 <!ENTITY RFC5180 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5180.xml">
 <!ENTITY RFC6724 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6724.xml">
 <!ENTITY RFC6890 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6890.xml">
-<!ENTITY RFC6890 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8200.xml">
+<!ENTITY RFC8200 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8200.xml">
 ]>
 
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
