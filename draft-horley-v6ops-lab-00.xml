@@ -101,10 +101,10 @@
 <t>public and private clouds,</t>
 <t>virtualization or hosting environments,</t>
 <t>and in other networks like Service Providers, Enterprise, Government, IoT, and Energy,</t>
-<t>all with the knowledge that the lab GUA address space will perform the same as any GUA but with the added knowledge that filtering will be used to protect accidential leaks to the Internet.</t>
+<t>all with the knowledge that the lab GUA address space will perform the same as any GUA but with the added knowledge that filtering will be used to protect accidental leaks to the Internet.</t>
     
 <t>The following criteria is for selecting the lab prefix:</t>
-<t>The precendence for the lab prefix should no be lower than the GUA prefix as defined in <xref target="RFC6724" /> (unlike ULA). Reduce the operational impacts to IANA and the RIR's in selecting lab prefix space.</t>
+<t>The precedence for the lab prefix should no be lower than the GUA prefix as defined in <xref target="RFC6724" /> (unlike ULA). Reduce the operational impacts to IANA and the RIR's in selecting lab prefix space.</t>
 
 </section> <!-- end of introduction -->
 
