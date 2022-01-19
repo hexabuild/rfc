@@ -4,7 +4,6 @@
 
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
-<!ENTITY RFC3513 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3513.xml">
 <!ENTITY RFC3701 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3701.xml">
 <!ENTITY RFC3879 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3879.xml">
 <!ENTITY RFC4291 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.4291.xml">
@@ -175,7 +174,6 @@
 </references> <!-- end of normative references -->
 
 <references title="Informative References">
-&RFC3513;
 &RFC4291;
 &RFC6724;
 &RFC6890;
