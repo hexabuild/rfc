@@ -1,0 +1,117 @@
+Network Working Group                                          E. Horley
+Request for Comments: XXXY                                     HexaBuild
+Category: Informational
+                                                                R. White
+                                                                Juniper Networks
+                                                                April 2022
+
+
+                Lack of NAT in IPv6 is an issue for Enterprise IPv6 Adoption
+
+Status of this Memo
+
+   This memo provides information for the Internet community.  It does
+   not specify an Internet standard of any kind.  Distribution of this
+   memo is unlimited.
+
+Copyright Notice
+
+   Copyright (C) The Internet Society (2021).
+
+Abstract
+
+<txt>
+
+
+1.  Introduction
+
+<txt>
+
+
+
+
+Horley, et al.               Informational                      [Page 1]
+
+RFC XXXX         NAT in IPv6      April 2022
+
+2.  Defining NAT in Enterprise IPv6 problem space
+
+Use cases for Enterprise:
+a. Regulatory issues PCI/DSS (do some digging and research on this), HIPPA, OMB memo, FIPS, 
+b. Default state is fail closed (need address space that does NOT route to the DFZ)
+c. Need solution for SD-WAN with multiple PA space (overlay/underlay)
+d. Need address space for underlay solution to isolate for security reasons (avoiding accidental leak or firewall holes)
+e. Need solution for retail guest/partner/IoT
+f. DDOS rapid move address space/services and mapping
+g. Cloud service providers having reusable space for dual-stack networks to NAT outbound to public IPv6
+h. Container and Kubernetes able to leverage reusable space (simply deployment)
+i. Lab and development environments
+
+
+
+3.  Operational Implications
+
+Operational enterprise issues that will drive this requirement:
+a. Reduce accidental exposure of routing or planned "non" routable GUA making it into the DFZ
+b. Not able to match existing IPv4 operational deployment and design
+c. SD-WAN and private routing options (overlay/underlay)
+d. Regulator says no GUA space for a service
+e. Lack of repeatability for lab and automation scaling
+f. Mismatched GUA prefixes from PA providers (why NPTv6 doesn't work for all situations)
+
+
+4.  IANA Considerations
+
+<txt>
+
+
+
+
+
+
+
+Horley, et al.               Informational                      [Page 2]
+
+RFC XXXX         NAT in IPv6      April 2022
+
+
+5.  Security Considerations
+ 
+<txt>
+
+6.  Acknowledgements
+
+<txt>
+
+7.  References
+
+7.1.  Normative References
+
+   [1]  D. Thaler, R. Draves, et al., "Default Address Selection for Internet Protocol Version 6 (IPv6)", RFC 6724, September 2012.
+   [2]  R. Hinden and B. Haberman, "Unique Local IPv6 Unicast Addresses", RFC 4193, October 2005
+
+7.2.  Informative References
+
+   [3]  <author>
+
+Do we need to reference these?:
+
+
+
+Authors' Addresses
+
+   Nick Buraglio
+   Energy Sciences Network
+
+   EMail: buraglio@es.net
+
+
+   Russ White
+   Juniper Networks
+
+   EMail: russ@riw.us
+
+
+
+
+
