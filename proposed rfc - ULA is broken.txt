@@ -37,7 +37,7 @@ RFC XXXX         ULA is Broken      April 2022
 2.  Defining how ULA is Broken
 
 RFC 6724 definition is incorrect for ULA precedence if a host is operating in a dual-stack environment. Expected 
-behavior would be that ULA address space would be preferred over IPv4, however this is not the case.
+behavior would be that ULA address space would be preferred over IPv4, however this is not the case. 
 
 3.  Operational Implications
 
@@ -61,6 +61,11 @@ IPv4 over ULA IPv6. This behavior deviates from IPv4 addressing with IPv6 GUA ad
 of the IPv4 addressing (be it RFC 1918, RFC 6598 or public RIR assigned addressing). Operationally and strategically, this manifests as an impediment to 
 deployment of IPv6 for many non-service provider and mobile networks phasing in dual-stacked (both legacy IPv4 and IPv6) networking with the expectation of leveraging 
 similar operational models to their existing architectures.    
+
+Other operational considerations are the use of the policy table detailed in section 2.1 of RFC 6724. While conceptually the intent was for a configurable, longest-match 
+table to be adjusted as-needed, in practice the policy table remains inconsistently accessable across platforms. Embedded, proprietary, closed source, and IoT devices
+ are especially difficult to adjust and are, in many cases, incapable of any adjustment whatsoever. Large scale manipulation of the policy table also remains largely 
+ out of the realm of realistic support for small and medium scale operators due to inconsistent, obtuse, or non-existent implementation.   
 
 
 4.  IANA Considerations
