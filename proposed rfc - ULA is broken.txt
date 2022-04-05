@@ -41,15 +41,25 @@ behavior would be that ULA address space would be preferred over IPv4, however t
 
 3.  Operational Implications
 
-There are demonstrated uses cases of ULA not being preferred in some OS and network equipment over IPv4.
-Need to update RFC 6724
-This update will likely take between 10-20 years to become common enough for relatively consistent behavior
-within operating systems. * (note that it has taken longer for RFC 3484 - 2003
-to move to 6724 - 2012 than 10+ years in total as there are still systems on many networks with 3484 behavior)
-Issues with: printers, cameras, fixed devices, IoT sensors, long lifecycle equipment
-Means moving to dual-stack with ULA results in inconsistent and difficult to troubleshoot operational issues.
-Mean teams are not gaining IPv6 experience as no traffic is actually using IPv6.
-Unexpected behavior can result in odd operational outcomes which can result in security and compliance issues.
+There are demonstrated uses cases of ULA not being preferred in some OS and network equipment over IPv4 that necessitate the immediate
+to update RFC 6724 to better reflect the original intent of the RFC. As with most adjustments to standards, and using RFC 6724 itself as a 
+measurment, this update will likely take between 8-20 years to become common enough for relatively consistent behavior within operating systems. 
+As an example, the time between RFC 3484, published in 2003 and RFC 6724, published in 2012 was roughly 10 years in total as there still exist 
+commercial and open source operating systems exibiting RFC 3484 behavior). Notable examples of such out-of-date behavior can be easily found in printers, 
+cameras, fixed devices, IoT sensors, and long lifecycle equipment. It is especially important to note this behavior in long lifecycle equipment that exists
+in industrial control and operational techology environments due to their very long mean time to replacement. Practically, the resulting move to dual-stack 
+with ULA is inconsistent and imparts unnecessary difficulty in troubleshooting and creating baseline expected behavior, both requirements for most deployments 
+of this type. 
+This, in turn, results in operational and engineering teams not gaining IPv6 experience as no traffic is actually using IPv6, and security baseline 
+expectations are inconsistent at best and haphazard at worst. Such unexpected behavior can result in odd operational outcomes which can result in serious
+security and compliance issues and could, in some cases, result in disabling of IPv6 to acheive compliance and consistency. 
+
+In practrice, RFC 6724 imposes several operational shortcomings preventing both consistent and desired behavior. 
+If we define "desired" behavior" as IPv6 preference over legacy IPv4 for address and protocol selection, then the resulting
+implemented behavior, based on RFC 6724, will fall short of that intent. Based on the current verbiage, while dual stacked hosts
+configured with both an IPv4 RFC 1918 address and an IPv6 ULA address the resulting behavior will manifest as a host choosing 
+IPv4 over ULA IPv6. This behavior deviates from IPv4 addressing with IPv6 GUA addressing which will prefer IPv6 over IPv4 regardless 
+of the IPv4 addressing (be it RFC 1918, RFC 6598 or public RIR assigned addressing). Operationally, this is an impediment to deployment.    
 
 
 4.  IANA Considerations
