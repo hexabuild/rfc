@@ -175,14 +175,9 @@ security and compliance issues and could, in some cases, result in disabling of 
    [2]  R. Hinden and B. Haberman, "Unique Local IPv6 Unicast Addresses", RFC 4193, October 2005
    [3]  J. Weil,  V. Kuarsingh,. et al., "IANA-Reserved IPv4 Prefix for Shared Address Space", RFC 6598, April 2012.
    [4]  Y. Rekhter, B. Moskowitz, et al., "Address Allocation for Private Internets", RFC 1918, February 1996.
-   [5]  D. Schinazi, T. Pauly, Happy Eyeballs Version 2: Better Connectivity Using Concurrency, RFC 8305, December 2017. 
+   [5]  D. Schinazi, T. Pauly, et al., Happy Eyeballs Version 2: Better Connectivity Using Concurrency, RFC 8305, December 2017. 
+
 7.2.  Informative References
-
-   [3]  <author>
-
-Do we need to reference these?:
-
-
 
 Authors' Addresses
 
