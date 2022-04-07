@@ -139,13 +139,17 @@ Below is an example of a typical gai.cnf file from a modern Linux installation a
 
 Several assumptions are made here and are lergely based on interpretations of RFC 6724 but are not operationally relevant in modern networks. 
 
+Example failure mode:
+
+1. ULA per RFC 6724 is less preferred (the Precedence value is lower) than all IPv4 (represented by ::ffff:0:0/96 in the aforementioned table).
+2. Because of the lower Precedence value of fc00::/7, if a host has IPv4 enabled, it will use IPv4 before using ULA.
+3. IPv4/IPv6 Dual Stacked The client will source the traffic from the IPv4 address, meaning it will require a corresponding IPv4 destination address.
+
+Per number 3, even a host choosing a destination with A and AAAA DNS records, the host in question will choose the A record to get an IPv4 address for the 
+destination, meaning ULA IPv6 is rendered completely unused.
+It is also notable that Happy Eyeballs (RFC 8305) will not change the source address selection process on a host. Happy Eyeballs will only modify 
+the destination sorting process.
 4.  IANA Considerations
-
-<txt>
-
-
-
-
 
 
 
@@ -171,7 +175,7 @@ security and compliance issues and could, in some cases, result in disabling of 
    [2]  R. Hinden and B. Haberman, "Unique Local IPv6 Unicast Addresses", RFC 4193, October 2005
    [3]  J. Weil,  V. Kuarsingh,. et al., "IANA-Reserved IPv4 Prefix for Shared Address Space", RFC 6598, April 2012.
    [4]  Y. Rekhter, B. Moskowitz, et al., "Address Allocation for Private Internets", RFC 1918, February 1996.
-
+   [5]  D. Schinazi, T. Pauly, Happy Eyeballs Version 2: Better Connectivity Using Concurrency, RFC 8305, December 2017. 
 7.2.  Informative References
 
    [3]  <author>
