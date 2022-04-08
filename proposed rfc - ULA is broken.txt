@@ -50,8 +50,8 @@ as is performed with GUA addressing.
 There are demonstrated uses cases of ULA not being preferred in some OS and network equipment over legacy IPv4 that necessitate the immediate
 update to RFC 6724 to better reflect the original intent of the RFC. As with most adjustments to standards, and using RFC 6724 itself as a 
 measurment, this update will likely take between 8-20 years to become common enough for relatively consistent behavior within operating systems. 
-As a reference, the time between RFC 3484, which was published in 2003 and RFC 6724, published in 2012, was roughly 10 years in total and there still exist 
-commercial and open source operating systems exibiting RFC 3484 behavior. It is anticipated it will take just as long for an update of RFC 6724 to be adopted.
+As a reference, it has been 10 years since RFC 6724 has been published but we continue to see existing commercial and open source operating systems exhibiting RFC 3484 behavior. 
+It is anticipated it will take just as long for an update of RFC 6724 to be adopted.
 In addition, in the current versions of Linux, the priority table (gai.conf) still makes reference to RFC 3484, further demonstrating 
 the long timeframe to have updates reflected in a current OS. 
 Examples of such out-of-date behavior can be found in printers, cameras, fixed devices, IoT sensors, and longer lifecycle equipment. It is especially 
@@ -84,7 +84,8 @@ with the expectation of consistent behavior (alway use IPv6 before legacy IPv4).
 
 Other operational considerations are the use of the policy table detailed in section 2.1 of RFC 6724. While conceptually the intent was for a configurable,
 longest-match table to be adjusted as-needed. In practice, modifying the prefix policy table remains difficult across platforms, and in some cases impossible.
-Embedded, proprietary, closed source, and IoT devices are especially difficult to adjust and are, in many cases, incapable of any adjustment whatsoever. Large scale manipulation of the policy table also remains out of the realm of realistic support for small and medium scale operators due to lack of ability to manipulate all the
+Embedded, proprietary, closed source, and IoT devices are especially difficult to adjust and are, in many cases, incapable of any adjustment whatsoever. 
+Large scale manipulation of the policy table also remains out of the realm of realistic support for small and medium scale operators due to lack of ability to manipulate all the
 hosts and systems, or a lack of tooling and access.
 
 Below is an example of a gai.cnf file from a modern Linux installation as of 03 April 2022. 
@@ -167,9 +168,10 @@ Per number 3, even a host choosing a destination with A and AAAA DNS records, th
 destination, meaning ULA IPv6 is rendered completely unused.
 It is also notable that Happy Eyeballs (RFC 8305) will not change the source address selection process on a host. Happy Eyeballs will only modify 
 the destination sorting process.
+
 4.  IANA Considerations
 
-
+None at this time.
 
 Buraglio, et al.               Informational                      [Page 2]
 
@@ -183,7 +185,6 @@ security and compliance issues and could, in some cases, result in disabling of 
 
 6.  Acknowledgements
 
-<txt>
 
 7.  References
 
