@@ -37,13 +37,13 @@ RFC XXXX         ULA is Broken      April 2022
 2.  Defining well known unintended operational issues with ULA
 
 RFC 6724 definition is incorrect for ULA precedence if a host is operating in a dual-stack environment. Expected 
-behavior would be that ULA address space would be preferred over IPv4, however this is not the case. This presents an acute issue with 
-any environment that will use ULA addressing along side IPv4 that is counter to the standard expectations for IPv4 / IPv6 dual-stack behavior of preferring IPv6, 
+behavior would be that ULA address space would be preferred over legacy IPv4, however this is not the case. This presents an acute issue with 
+any environment that will use ULA addressing along side legacy IPv4 that is counter to the standard expectations for legacy IPv4 / IPv6 dual-stack behavior of preferring IPv6, 
 as is performed with GUA addressing. 
 
 3.  Operational Implications
 
-There are demonstrated uses cases of ULA not being preferred in some OS and network equipment over IPv4 that necessitate the immediate
+There are demonstrated uses cases of ULA not being preferred in some OS and network equipment over legacy IPv4 that necessitate the immediate
 update to RFC 6724 to better reflect the original intent of the RFC. As with most adjustments to standards, and using RFC 6724 itself as a 
 measurment, this update will likely take between 8-20 years to become common enough for relatively consistent behavior within operating systems. 
 As a reference, the time between RFC 3484, which was published in 2003 and RFC 6724, published in 2012, was roughly 10 years in total and there still exist 
@@ -64,26 +64,26 @@ The core issue is the stated interpretation from gai.conf that has the following
 #scopev4 ::ffff:127.0.0.0/104    2
 #scopev4 ::ffff:0.0.0.0/96       14
 
-Notice that they are interpreting the IPv4 address range as "scopev4" and the prefix ::ffff:0.0.0.0/96 which has a higher precedence (35) in RFC 6724 then the ULA
-prefix of fc00::/7 (3). This results in IPv4 being preferred over IPv6 ULA.
+Notice that they are interpreting the legacy IPv4 address range as "scopev4" and the prefix ::ffff:0.0.0.0/96 which has a higher precedence (35) in RFC 6724 then the ULA
+prefix of fc00::/7 (3). This results in legacy IPv4 being preferred over IPv6 ULA.
 
 The operational outcome is the move to dual-stack with ULA is inconsistent and imparts unnecessary difficulty for both troubleshooting and creating the baseline
 expected behavior which are both requirements for deployments. This results in operational and engineering teams not gaining IPv6 experience as limited traffic
-is actually using IPv6, and security baseline  expectations are inconsistent at best and haphazard at worst. 
+is actually using IPv6, and security baseline expectations are inconsistent at best and haphazard at worst. 
 
-In practrice, RFC 6724 imposes several operational shortcomings preventing both consistent and desired behavior. If we define "desired" behavior" as IPv6 preference
+In practice, RFC 6724 imposes several operational shortcomings preventing both consistent and desired behavior. If we define "desired behavior" as IPv6 preference
 over legacy IPv4 for address and protocol selection, then the resulting implemented behavior, based on RFC 6724, will fall short of that intent. Based on the current
-verbiage, dual-stacked hosts configured with both an IPv4 address and an IPv6 ULA address, the resulting behavior will manifest as a host choosing IPv4 over ULA IPv6.
-This behavior deviates from the current goal of a host with IPv4 address and also with an IPv6 GUA address preferring IPv6 over IPv4. Operationally and strategically,
+verbiage, dual-stacked hosts configured with both a legacy IPv4 address and an IPv6 ULA address, the resulting behavior will manifest as a host choosing IPv4 over ULA IPv6.
+This behavior deviates from the current goal of a host with legacy IPv4 address and also with an IPv6 GUA address preferring IPv6 over IPv4. Operationally and strategically,
 this manifests as an impediment to deployment of IPv6 for many non-service provider and mobile networks phasing in dual-stacked (both legacy IPv4 and IPv6) networking
-with the expectation of consistent behavior (alway use IPv6 before IPv4).    
+with the expectation of consistent behavior (alway use IPv6 before legacy IPv4).    
 
 Other operational considerations are the use of the policy table detailed in section 2.1 of RFC 6724. While conceptually the intent was for a configurable,
 longest-match table to be adjusted as-needed. In practice, modifying the prefix policy table remains difficult across platforms, and in some cases impossible.
 Embedded, proprietary, closed source, and IoT devices are especially difficult to adjust and are, in many cases, incapable of any adjustment whatsoever. Large scale manipulation of the policy table also remains out of the realm of realistic support for small and medium scale operators due to lack of ability to manipulate all the
 hosts and systems, or a lack of tooling and access.
 
-Below is an example of a typical gai.cnf file from a modern Linux installation as of 03 April 2022. 
+Below is an example of a gai.cnf file from a modern Linux installation as of 03 April 2022. 
 
 # Configuration for getaddrinfo(3).
 #
@@ -155,11 +155,11 @@ Several assumptions are made here and are lergely based on interpretations of RF
 
 Example failure mode:
 
-1. ULA per RFC 6724 is less preferred (the Precedence value is lower) than all IPv4 (represented by ::ffff:0:0/96 in the aforementioned table).
-2. Because of the lower Precedence value of fc00::/7, if a host has IPv4 enabled, it will use IPv4 before using ULA.
-3. IPv4/IPv6 Dual Stacked The client will source the traffic from the IPv4 address, meaning it will require a corresponding IPv4 destination address.
+1. ULA per RFC 6724 is less preferred (the Precedence value is lower) than all legacy IPv4 (represented by ::ffff:0:0/96 in the aforementioned table).
+2. Because of the lower Precedence value of fc00::/7, if a host has legacy IPv4 enabled, it will use legacy IPv4 before using ULA.
+3. IPv4/IPv6 Dual Stacked The client will source the traffic from the legacy IPv4 address, meaning it will require a corresponding legacy IPv4 destination address.
 
-Per number 3, even a host choosing a destination with A and AAAA DNS records, the host in question will choose the A record to get an IPv4 address for the 
+Per number 3, even a host choosing a destination with A and AAAA DNS records, the host in question will choose the A record to get an legacy IPv4 address for the 
 destination, meaning ULA IPv6 is rendered completely unused.
 It is also notable that Happy Eyeballs (RFC 8305) will not change the source address selection process on a host. Happy Eyeballs will only modify 
 the destination sorting process.
@@ -198,7 +198,7 @@ Authors' Addresses
    Nick Buraglio
    Energy Sciences Network
 
-   EMail: buraglio@forwardingplane.net
+   EMail: buraglio@es.net
 
 
    Russ White
