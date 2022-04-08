@@ -20,12 +20,16 @@ Copyright Notice
 
 Abstract
 
-<txt>
+Behavior of ULA addressing as defined by RFC 6724 is preferred below legacy IPv4 addressing thus rendering ULA IPv6 deployment functionally unusable in 
+IPv4 / IPv6 dual-stacked environments. This behavior is counter to the operational behavior of GUA IPv6 addressing on nearly all modern operating systems that 
+leverage a preference model based on RFC 6724. 
 
 
 1.  Introduction
 
-<txt>
+In modern IPv4 / IPv6 dual-stacked environments ULA addressing and GUA IPv6 addressing exhibit opposite behavior which creates difficulties in deployments leveraging ULA addressing.
+This conflicting behavior carries planning, operational, and security implications for environments requiring ULA addressing with IPv4/IPv6 dual-stack and prioritization of IPv6 traffic by default, as 
+is the behavior with IPv6 GUA addressing.   
 
 
 
