@@ -6,7 +6,7 @@ Category: Informational
                                                                 April 2022
 
 
-                ULA is Broken
+                Unintended operational issues with ULA
 
 Status of this Memo
 
@@ -34,10 +34,12 @@ Buraglio, et al.               Informational                      [Page 1]
 
 RFC XXXX         ULA is Broken      April 2022
 
-2.  Defining how ULA is Broken
+2.  Defining well known unintended operational issues with ULA
 
 RFC 6724 definition is incorrect for ULA precedence if a host is operating in a dual-stack environment. Expected 
-behavior would be that ULA address space would be preferred over IPv4, however this is not the case. 
+behavior would be that ULA address space would be preferred over IPv4, however this is not the case. This presents an acute issue with 
+any environment that will use ULA addressing along side IPv4 that is counter to the standard expectations for IPv4 / IPv6 dual-stack behavior of preferring IPv6, 
+as is performed with GUA addressing. 
 
 3.  Operational Implications
 
