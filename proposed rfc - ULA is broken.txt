@@ -32,7 +32,7 @@ Abstract
 
 Buraglio, et al.               Informational                      [Page 1]
 
-RFC XXXX         ULA is Broken      April 2022
+RFC XXXX         Unintended operational issues with ULA      April 2022
 
 2.  Defining well known unintended operational issues with ULA
 
@@ -169,7 +169,7 @@ the destination sorting process.
 
 Buraglio, et al.               Informational                      [Page 2]
 
-RFC XXXX         ULA is Broken      April 2022
+RFC XXXX         Unintended operational issues with ULA      April 2022
 
 
 5.  Security Considerations
