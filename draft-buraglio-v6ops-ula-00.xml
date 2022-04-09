@@ -35,12 +35,6 @@
             </address>
         </author>
 
-        <author initials='E.' surname='Horley' fullname='Ed Horley'>
-            <organization>HexaBuild</organization>
-            <address>
-                <email>ed@hexabuild.io</email>
-            </address>
-        </author>
 
         <author initials='C.' surname='Cummings' fullname='Chris Cummings'>
             <organization>Energy Sciences Network</organization>
@@ -49,26 +43,6 @@
             </address>
         </author>
 
-        <author initials='K.' surname='Myers' fullname='Kevin Myers'>
-            <organization>IP ArchiTechs</organization>
-            <address>
-                <email>kevin.myers@iparchitechs.com</email>
-            </address>
-        </author>
-
-        <author initials='T.' surname='Coffeen' fullname='Tom Coffeen'>
-            <organization>HexaBuild</organization>
-            <address>
-                <email>tom@hexabuild.io</email>
-            </address>
-        </author>
-
-        <author initials='S.' surname='Hogg' fullname='Scott Hogg'>
-            <organization>HexaBuild</organization>
-            <address>
-                <email>scott@hexabuild.io</email>
-            </address>
-        </author>
 
         <author initials='R.' surname='White' fullname='Russ White'>
             <organization>Juniper Networks</organization>
