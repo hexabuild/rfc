@@ -196,7 +196,7 @@
 <t>ULA per <xref target="RFC6724"/>
  is less preferred (the Precedence value is lower) than all legacy IPv4 (represented by ::ffff:0:0/96 in the aforementioned table).</t>
 <t>Because of the lower Precedence value of fc00::/7, if a host has legacy IPv4 enabled, it will use legacy IPv4 before using ULA.</t>
-<t>IPv4/IPv6 Dual Stacked The client will source the traffic from the legacy IPv4 address, meaning it will require a corresponding legacy IPv4 destination address.</t>
+<t>A dual-stacked client will source the traffic from the legacy IPv4 address, meaning it will require a corresponding legacy IPv4 destination address.</t>
 </list>
 </t>
 
