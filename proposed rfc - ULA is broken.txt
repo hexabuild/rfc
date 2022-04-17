@@ -1,9 +1,9 @@
 Network Working Group                                          N. Buraglio
 Request for Comments: XXXY                                     Energy Sciences Network
 Category: Informational
-                                                                R. White
-                                                                Juniper Networks
-                                                                April 2022
+                                                               R. White
+                                                               Juniper Networks
+                                                               April 2022
 
 
                 Unintended operational issues with ULA
@@ -163,10 +163,10 @@ Example failure mode:
 
 1. ULA per RFC 6724 is less preferred (the Precedence value is lower) than all legacy IPv4 (represented by ::ffff:0:0/96 in the aforementioned table).
 2. Because of the lower Precedence value of fc00::/7, if a host has legacy IPv4 enabled, it will use legacy IPv4 before using ULA.
-3. IPv4/IPv6 Dual Stacked The client will source the traffic from the legacy IPv4 address, meaning it will require a corresponding legacy IPv4 destination address.
+3. A dual-stacked client will source the traffic from the legacy IPv4 address, meaning it will require a corresponding legacy IPv4 destination address.
 
 Per number 3, even a host choosing a destination with A and AAAA DNS records, the host in question will choose the A record to get an legacy IPv4 address for the 
-destination, meaning ULA IPv6 is rendered completely unused.
+destination, meaning ULA IPv6 is unused.
 It is also notable that Happy Eyeballs (RFC 8305) will not change the source address selection process on a host. Happy Eyeballs will only modify 
 the destination sorting process.
 
@@ -185,7 +185,7 @@ RFC XXXX         Unintended operational issues with ULA      April 2022
 5.  Security Considerations
  
 Such unexpected behavior can result in odd operational outcomes which can result in serious
-security and compliance issues and could, in some cases, result in disabling of IPv6 to acheive compliance and consistency. 
+security and compliance issues and could, in some cases, result in disabling IPv6 to acheive compliance and consistency. 
 
 6.  Acknowledgements
 
