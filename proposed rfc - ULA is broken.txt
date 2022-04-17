@@ -156,7 +156,8 @@ Below is an example of a gai.cnf file from a modern Linux installation as of 03 
 #scopev4 ::ffff:127.0.0.0/104    2
 #scopev4 ::ffff:0.0.0.0/96       14
 
-Several assumptions are made here and are lergely based on interpretations of RFC 6724 but are not operationally relevant in modern networks. 
+Several assumptions are made here and are largely based on interpretations of RFC 6724 but are not operationally relevant in modern networks. 
+
 
 Example failure mode:
 
@@ -168,6 +169,9 @@ Per number 3, even a host choosing a destination with A and AAAA DNS records, th
 destination, meaning ULA IPv6 is rendered completely unused.
 It is also notable that Happy Eyeballs (RFC 8305) will not change the source address selection process on a host. Happy Eyeballs will only modify 
 the destination sorting process.
+
+As a direct result of the described failure modes, and in addition to the aforementioned operational implications, use of ULA is not a viable option for dual-stack \
+networking transition planning, large scale network modeling, network lab environments or other modes of emulating a large scale networking that runs both IPv4 and IPv6 concurrently.
 
 4.  IANA Considerations
 
