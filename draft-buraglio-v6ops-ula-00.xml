@@ -205,6 +205,9 @@
 <t>Per number 3, even a host choosing a destination with A and AAAA DNS records, the host in question will choose the A record to get an legacy IPv4 address for the destination, meaning ULA IPv6 is rendered completely unused. It is also notable that Happy Eyeballs (<xref target="RFC8305"/>
 ) will not change the source address selection process on a host. Happy Eyeballs will only modify the destination sorting process.</t>
 
+<t>As a direct result of the described failure modes, and in addition to the aforementioned operational implications, use of ULA is not a viable option for dual-stack \
+networking transition planning, large scale network modeling, network lab environments or other modes of emulating a large scale networking that runs both IPv4 and IPv6 concurrently.</t>
+
 
 </section><!-- end of Operational Implications -->
 
