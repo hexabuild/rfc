@@ -238,9 +238,6 @@ networking transition planning, large scale network modeling, network lab enviro
             &RFC6724;
             &RFC8305;
             &RFC3484;
-            &RFC1918;
-            &RFC4193;
-            &RFC6598;
 </references><!-- end of normative references -->
 <references title="Informative References">
 <!--?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml"?-->
