@@ -1,8 +1,9 @@
 Network Working Group                                          E. Horley
 Request for Comments: XXXY                                     HexaBuild
 Category: Informational
-                                                                R. White
-                                                                Juniper Networks
+                                                                Kevin
+                                                                Chris
+                                                                
                                                                 April 2022
 
 
@@ -16,17 +17,21 @@ Status of this Memo
 
 Copyright Notice
 
-   Copyright (C) The Internet Society (2021).
+   Copyright (C) The Internet Society (2022).
 
 Abstract
-
-<txt>
+Lack of NAT is slowing IPv6 adoption. These are real world scenarios that Enterprises
+must address to successfully adopt IPv6. This document outlines the problems, issues,
+and potential solutions. The goal is the help increase the adoption of IPv6 in Enterprise.
 
 
 1.  Introduction
+<Walk through the document>
+While we advocate for GUA IPv6 end to end addressing where it is possible. If we want IPv6
+Enterprise deployment, we need to provide the tools and architecture options to these organization.
 
-<txt>
-
+We are taking the position that SOME IPv6 is better than NO IPv6 deployed. We can iterate on the design
+and the deployment over time but initial adoption is too important right now.
 
 
 
@@ -36,32 +41,76 @@ RFC XXXX         NAT in IPv6      April 2022
 
 2.  Defining NAT in Enterprise IPv6 problem space
 
-Use cases for Enterprise:
-a. Regulatory issues PCI/DSS (do some digging and research on this), HIPPA, OMB memo, FIPS, 
-b. Default state is fail closed (need address space that does NOT route to the DFZ)
-c. Need solution for SD-WAN with multiple PA space (overlay/underlay)
-d. Need address space for underlay solution to isolate for security reasons (avoiding accidental leak or firewall holes)
-e. Need solution for retail guest/partner/IoT
-f. DDOS rapid move address space/services and mapping
-g. Cloud service providers having reusable space for dual-stack networks to NAT outbound to public IPv6
-h. Container and Kubernetes able to leverage reusable space (simply deployment)
-i. Lab and development environments
+2.1 Architect and Design drivers for Enterprise:
+a. Regulatory issues FIPS, HIPAA, NIST, PCI/DSS, and others
+b. Need solution for SD-WAN with multiple PA space (overlay/underlay)
+c. Need solution for retail guest/partner/IoT
+d. Cloud service providers having reusable space for dual-stack networks to NAT outbound to public IPv6
+e. Container and Kubernetes able to leverage reusable space (simply deployment)
+f. Lab and development environments
 
+2.2 Operational drivers for Enterprise:
+a. Default state is fail closed (need address space that does NOT route to the DFZ)
+b. Need solution for SD-WAN with multiple PA space (overlay/underlay)
+c. Need address space for underlay solution to isolate for security reasons (avoiding accidental leak or firewall holes)
+d. DDOS rapid move address space/services and mapping
+e. Cloud service providers having reusable space for dual-stack networks to NAT outbound to public IPv6
+f. Lab and development environments
+g. Mobile prefix (hot spot) NAT to Route into network - LTE
+h. Reduce number of /48 prefixes in the DFZ
+i. Reduce failover time between Service Providers with PA prefixes
 
 
 3.  Operational Implications
 
-Operational enterprise issues that will drive this requirement:
+3.1 Operational enterprise issues that will drive this requirement:
 a. Reduce accidental exposure of routing or planned "non" routable GUA making it into the DFZ
 b. Not able to match existing IPv4 operational deployment and design
 c. SD-WAN and private routing options (overlay/underlay)
 d. Regulator says no GUA space for a service
 e. Lack of repeatability for lab and automation scaling
 f. Mismatched GUA prefixes from PA providers (why NPTv6 doesn't work for all situations)
+g. Scanning and tracking hosts
+h. Tracking hosts will continue to be as difficult with IPv4
+i. Logging and event cooralation will continue to be an issue
+j. Accidents happen - have a safer default behavior then GUA <- this is the goal - fail closed
 
 
-4.  IANA Considerations
+4.  Possible Solutions
 
+4.1 Current options:
+a. Use  PI Global Unicast Addresses everywhere
+b. Run BGP with PI space in all remote sites that have multiple providers
+c. Sites that have multiple providers but no PI space, use both PA prefixes
+d. NPTv6 from PA to PI, assuming all the prefixes match
+e. NAT66 from PI to PI or from PA to PI, overloading of IPv6 addresses?
+f. SIIT 
+
+4.2 Possible options:
+a. Introduce new Prefix that is designated not routable in the DFZ
+b. Introduce NAT66 as a standard (requires RFC) - will need to have overloading
+c. Introduce fractional NPTv6 (partial or smaller groups of prefixes) /40 and /44 <- optionally split apart /48 or /64
+
+
+5. Example Scenario
+a. Retail POS
+<write up> - Kevin
+b. SD-WAN/Multi-Cloud networking (Multihomed w/ PA)
+<write up> - Ed
+c. Small/Medium branch office
+<write up> - Chris
+d. Banking ATM and Finance
+<write up> - Kevin
+e. Energy/Utility - isolation and security
+<write up> - Chris
+f. Government/Military - security
+<write up> - Kevin
+g. Medical - security and regulatory
+<write up> - Ed
+
+
+6.  IANA Considerations
+Potentially 
 <txt>
 
 
@@ -87,29 +136,32 @@ RFC XXXX         NAT in IPv6      April 2022
 
 7.1.  Normative References
 
-   [1]  D. Thaler, R. Draves, et al., "Default Address Selection for Internet Protocol Version 6 (IPv6)", RFC 6724, September 2012.
-   [2]  R. Hinden and B. Haberman, "Unique Local IPv6 Unicast Addresses", RFC 4193, October 2005
+   [1]  ?
+   [2]  ?
 
 7.2.  Informative References
 
    [3]  <author>
 
-Do we need to reference these?:
-
 
 
 Authors' Addresses
-
-   Nick Buraglio
+   Ed Horley
+   HexaBuild
+   
+   EMail: ed@hexabuild.io
+   
+   
+   Chris Cummings
    Energy Sciences Network
 
-   EMail: buraglio@es.net
+   EMail: cummings@es.net
 
 
-   Russ White
-   Juniper Networks
+   Kevin Myers
+   IP Architechs
 
-   EMail: russ@riw.us
+   EMail: kevin.myers@iparchitechs.com
 
 
 
