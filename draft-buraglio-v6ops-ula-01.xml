@@ -226,7 +226,7 @@ networking transition planning, large scale network modeling, network lab enviro
 </section><!-- end of security considerations -->
 
 <section title="Acknowledgements" toc="default">
-The authors acknowledge the work of Brian Carpenter, Bob Hinden, Mark Andrews, Vasilenko Eduardand, and Mark Smith for participation in the technical discussions 
+<t>The authors acknowledge the work of Brian Carpenter, Bob Hinden, Mark Andrews, Vasilenko Eduardand, and Mark Smith for participation in the technical discussions </t>
  leading to this finding and Michael Ackermann, Tom Coffeen, Kevin Myers, and Ed Horley for providing further testing and operational input.</t>
 </section><!-- end of acknowledgements -->
 
