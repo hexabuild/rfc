@@ -226,6 +226,8 @@ networking transition planning, large scale network modeling, network lab enviro
 </section><!-- end of security considerations -->
 
 <section title="Acknowledgements" toc="default">
+The authors acknowledge the work of Brian Carpenter, Bob Hinden, Mark Andrews, Vasilenko Eduardand, and Mark Smith for participation in the technical discussions 
+ leading to this finding and Michael Ackermann, Tom Coffeen, Kevin Myers, and Ed Horley for providing further testing and operational input.</t>
 </section><!-- end of acknowledgements -->
 
 </middle>
@@ -236,6 +238,9 @@ networking transition planning, large scale network modeling, network lab enviro
             &RFC6724;
             &RFC8305;
             &RFC3484;
+            &RFC1918;
+            &RFC4193;
+            &RFC6598;
 </references><!-- end of normative references -->
 <references title="Informative References">
 <!--?rfc include="http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml"?-->
