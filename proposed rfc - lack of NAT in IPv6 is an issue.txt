@@ -95,18 +95,24 @@ c. Introduce fractional NPTv6 (partial or smaller groups of prefixes) /40 and /4
 5. Example Scenario
 a. Retail POS
 <write up> - Kevin
+
 b. SD-WAN/Multi-Cloud networking (Multihomed w/ PA)
-<write up> - Ed
+A common deployment for (small business all the way up to enterprise) SD-WAN is to have multiple Internet providers (2 or more) for each site location. The public IPv4 addresses that are provided are only used for tunnel creation (from the SD-WAN appliance to the head end or other branch SW-WAN appliances). It is also used to NAT for Internet traffic from devices at are at that site location. RFC 1918 private address space is utilized for the site location with routing to other sites utilizing a VPN overlay with routing entries for the private address space run by the entity. There is no corresponding IPv6 design that would work for dual-stack situations due to the ULA problem described in https://www.ietf.org/id/draft-buraglio-v6ops-ula-01.html which leaves many entities without a good network design option available. If they have Provider Independent (PI) IPv6 address space they can simple run PI locally and NPTv6 or NAT66 to each of the provided PA IPv6 address spaces. For organizations that do not have PI space, they have no equivalent design option that will work for them.
+
 c. Small/Medium branch office
 <write up> - Chris
+
 d. Banking ATM and Finance
 <write up> - Kevin
+
 e. Energy/Utility - isolation and security
 <write up> - Chris
+
 f. Government/Military - security
 <write up> - Kevin
+
 g. Medical - security and regulatory
-<write up> - Ed
+Many medical and lab facilities that support medical research have strict compliance and security controls. Often these controls require that the systems not have direct Internet access, run in an isolated fashion for the majority of their useable lifetime and be maintained in a strict methodology. This could be for reasons of reproducing lab or data in a given environment, for confidential data compliance or for national security concerns. The default method to secure these environments is to run RFC 1918 private address space and to not provide any translation (NAT) capabilities for those specific address ranges. This is considered safe as it is a fail closed environment. This prevents these systems from being able to access services external to their specific network environment. As these environments move to dual-stack, ULA may solve the issue of "fail closed" requirement but still suffers from the ULA dual-stack problem described in https://www.ietf.org/id/draft-buraglio-v6ops-ula-01.html which means no functional IPv6 with a ULA deployment. To allow these environments to run dual-stack but not run a GUA prefix, some other IPv6 address prefix option will be required to match these design requirements.
 
 
 6.  IANA Considerations
