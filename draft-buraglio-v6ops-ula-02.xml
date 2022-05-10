@@ -116,7 +116,7 @@
 <t>Other operational considerations are the use of the policy table detailed in section 2.1 of <xref target="RFC6724"/>
 . While conceptually the intent was for a configurable, longest-match table to be adjusted as-needed. In practice, modifying the prefix policy table remains difficult across platforms, and in some cases impossible. Embedded, proprietary, closed source, and IoT devices are especially difficult to adjust and are, in many cases, incapable of any adjustment whatsoever. Large scale manipulation of the policy table also remains out of the realm of realistic support for small and medium scale operators due to lack of ability to manipulate all the hosts and systems, or a lack of tooling and access.</t>
 
-<t>Below is an example of a gai.cnf file from a modern Linux installation as of 03 April 2022: </t>
+<t>Below is an example of a gai.conf file from a modern Linux installation as of 03 April 2022: </t>
 
 <figure anchor="gai2">
 <artwork align="left" name="" type="" alt=""><![CDATA[       
@@ -190,7 +190,12 @@
 </figure>
 
 <t>Several assumptions are made here and are largely based on interpretations of <xref target="RFC6724"/>
- but are not operationally relevant in modern networks.</t>
+ but are not operationally relevant in modern networks. As this file or an equivalent structure within a given operating system is referenced, it dictates the 
+ behavior of the getaddrinfo() or analogous process. More specifically, where getaddrinfo() or comparable API is used, the sorting behavior should take into account both 
+ the source address of the requesting host as well as the destination addresses returned and sort according to both source and destination addressing, i.e, when a ULA address is 
+ returned, the source address selection should return and use a ULA address if available. Similarly, if a GUA address is returned the source address selection should return 
+ a GUA source address if available.</t>
+
 <t>Here are some example failure modes:
 <list style="numbers">
 <t>ULA per <xref target="RFC6724"/>
