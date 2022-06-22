@@ -78,13 +78,19 @@
 
     <section title="Operational Implications" toc="default">
 
-        <t>There are demonstrated uses cases of ULA not being preferred in some OS and network equipment over legacy IPv4 that necessitate the immediate update to <xref target="RFC6724"/>
- to better reflect the original intent of the RFC. As with most adjustments to standards, and using <xref target="RFC6724"/>
- itself as a  measurment, this update will likely take between 8-20 years to become common enough for relatively consistent behavior within operating systems. As a reference, it has been 10 years since <xref target="RFC6724"/>
- has been published but we continue to see existing commercial and open source operating systems exhibiting <xref target="RFC3484"/>
- behavior. It is anticipated it will take just as long for an update of <xref target="RFC6724"/>
- to be adopted. In addition, in the current versions of Linux, the priority table (gai.conf) still makes reference to <xref target="RFC3484"/>
-, further demonstrating the long timeframe to have updates reflected in a current OS. Examples of such out-of-date behavior can be found in printers, cameras, fixed devices, IoT sensors, and longer lifecycle equipment. It is especially important to note this behavior in the long lifecycle equipment that exists in industrial control and operational techology environments due to their very long mean time to replacement. The core issue is the stated interpretation from gai.conf that has the following default:
+        <t>There are demonstrated and easily repeatible uses cases of ULA not being preferred in some OS and network equipment over legacy IPv4 that necessitate the immediate update to <xref target="RFC6724"/>
+to better reflect the original intent of the RFC. As with most adjustments to standards, and using <xref target="RFC6724"/>
+itself as a measurment, this update will likely take between 8-20 years to become common enough for relatively consistent behavior within operating systems. As a reference, as of the time of this writing, it has been 10 years since <xref target="RFC6724"/>
+has been published but we continue to see existing commercial and open source operating systems exhibiting <xref target="RFC3484"/>
+behavior. While it should be noted that <xref target="RFC6724"/> defines a solution that is functional academically, operationally the solution of adjusting the address preference selection table 
+is both operating system dependent and unable to be signalled by any network mechanism such as within a router advertisement, DHCPv6 option, or the like. This lack of an
+intra-protocol or network-based ability to adjust address selection preference, along with the inability to adjust a notable number of operating systems either programmatically or manually 
+renders operational scalability of such a mechanism functionally untenable.  
+It is anticipated that any update of <xref target="RFC6724"/>would require an additional 8-20 years to be fully realized and properly implemented in a majority of network connected systems. In addition, in the current versions of Linux, 
+the priority table (gai.conf) still makes reference to <xref target="RFC3484"/>, further demonstrating the long timeframe to have updates reflected in a current, modern operating system. Examples of such out-of-date behavior can be found in 
+printers, cameras, fixed devices, IoT sensors, and longer lifecycle equipment. 
+It is especially important to note this behavior in the long lifecycle equipment that exists in industrial control and operational techology environments due to their very long mean time to replacement. 
+The core issue is the stated interpretation from gai.conf that has the following default:
 </t>
 
 
