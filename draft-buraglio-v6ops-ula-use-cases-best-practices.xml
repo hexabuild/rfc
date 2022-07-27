@@ -26,7 +26,7 @@
 
     <front>
 
-        <title>Unintended Operational Issues With ULA</title>
+        <title>Best Practices and Use Cases for Unique Local Addressing</title>
 
         <author initials='N.' surname='Buraglio' fullname='Nick Buraglio'>
             <organization>Energy Sciences Network</organization>
@@ -39,9 +39,8 @@
         <date/>
 
         <abstract>
-            <t>BEst Practices and Use Cases for Unique Local Addressing
- is preferred below legacy IPv4 addressing, thus rendering ULA IPv6 deployment functionally unusable in IPv4 / IPv6 dual-stacked environments. This behavior is counter to the operational behavior of GUA IPv6 addressing on nearly all modern operating systems that leverage a preference model based on <xref target="RFC6724"/>
-.</t>
+            <t>Unique local addressing (ULA) as an addressing practice has unique and specialized set of use cases that may be counter to use cases for GUA addressing. 
+            Best Practices and Use Cases for Unique Local Addressing</t>
     </abstract>
 
 </front>
