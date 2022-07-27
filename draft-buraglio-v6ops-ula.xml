@@ -70,8 +70,16 @@
 
     <section title="Defining Well Known Unintended Operational Issues With ULA" toc="default">
 
-        <t>The <xref target="RFC6724"/>
- definition is incorrect for ULA precedence if a host is operating in a dual-stack environment. Expected behavior would be that ULA address space would be preferred over legacy IPv4, however this is not the case. This presents an acute issue with any environment that will use ULA addressing along side legacy IPv4 that is counter to the standard expectations for legacy IPv4 / IPv6 dual-stack behavior of preferring IPv6, as is performed with GUA addressing.</t>
+        <t>The <xref target="RFC6724"/> definition is incomplete for ULA precedence if a host is operating in a dual-stack environment. 
+    As written, <xref target="RFC6724"/> section 10.3 states 
+   "The default policy table gives IPv6 addresses higher precedence than
+   IPv4 addresses.  This means that applications will use IPv6 in
+   preference to IPv4 when the two are equally suitable.  An
+   administrator can change the policy table to prefer IPv4 addresses by
+   giving the ::ffff:0.0.0.0/96 prefix a higher precedence"
+ Expected behavior would be that ULA address space would be preferred over legacy IPv4, however this is not the case. This presents an acute issue with any environment that will use ULA addressing along side legacy IPv4 that is counter to the standard expectations for legacy IPv4 / IPv6 dual-stack behavior of preferring IPv6, as is performed with GUA addressing. 
+ Further, <xref target="RFC6724"/> Section 10.6 states that this is resolvable by adding a site-specific policy to cause ULAs
+   within a site to be preferred over global addresses. While theoretically possible, this presents signnificant issues on devices with inaccessable configuration files as detailed below. </t>
 
 
     </section>    <!-- end of Defining Well Known Unintended Operational Issues With ULA -->
@@ -237,7 +245,7 @@ networking transition planning, large scale network modeling, network lab enviro
 </section><!-- end of security considerations -->
 
 <section title="Acknowledgements" toc="default">
-<t>The authors acknowledge the work of Brian Carpenter, Bob Hinden, Mark Andrews, Vasilenko Eduardand, and Mark Smith for participation in the technical discussions
+<t>The authors acknowledge the work of Brian Carpenter, David Farmer, Bob Hinden, Mark Andrews, Vasilenko Eduardand, and Mark Smith for participation in the technical discussions
  leading to this finding and Michael Ackermann, Tom Coffeen, Kevin Myers, and Ed Horley for providing further testing and operational input.</t>
 </section><!-- end of acknowledgements -->
 
