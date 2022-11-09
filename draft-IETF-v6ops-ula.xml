@@ -20,7 +20,7 @@
 <?rfc sortrefs="yes" ?>
 <?rfc compact="yes" ?>
 <?rfc subcompact="no" ?>
-<rfc category="info" docName="draft-ietf-v6ops-ula-00" ipr="trust200902">
+<rfc category="info" docName="draft-ietf-v6ops-ula-01" ipr="trust200902">
 
     <!-- ***** FRONT MATTER ***** -->
 
@@ -242,12 +242,12 @@ networking transition planning, large scale network modeling, network lab enviro
 
 <section title="Security Considerations" toc="default">
 
-<t>Such unexpected behavior can result in odd operational outcomes which can result in serious security and compliance issues and could, in some cases, result in disabling of IPv6 to acheive compliance and consistency. .</t>
+<t>Such unexpected behavior can result in operational outcomes which can result in serious security and compliance issues and could, in some cases, result in disabling of IPv6 to acheive compliance and consistency. .</t>
 
 </section><!-- end of security considerations -->
 
 <section title="Acknowledgements" toc="default">
-<t>The authors acknowledge the work of Brian Carpenter, David Farmer, Bob Hinden, Mark Andrews, Vasilenko Eduardand, and Mark Smith for participation in the technical discussions
+<t>The authors acknowledge the work of Brian Carpenter, David Farmer, Bob Hinden, Mark Andrews, Eduard Vasilenko, and Mark Smith for participation in the technical discussions
  leading to this finding and Michael Ackermann, Tom Coffeen, Kevin Myers, and Ed Horley for providing further testing and operational input.</t>
 </section><!-- end of acknowledgements -->
 
